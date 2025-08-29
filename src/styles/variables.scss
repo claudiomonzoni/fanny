@@ -1,0 +1,70 @@
+
+$primario: #717A87;
+$secundario: #B67B6A;
+$acento: #8FB5A9;
+$gris: #3F3837;
+$fondo: #fef6ed;
+
+
+//media query
+$cel: 479px;
+$nocel: 479px;
+$tableta: 768px;
+$tableta-land: 1024px;
+$hd:1600px;
+$hdplus:1990px;
+
+
+//extra
+$radio: .8rem;
+$margen: 4rem;
+$margen-top: 8rem;
+$radio-cel: 0.5rem;
+$margen-cel: 2rem;
+$margen-min: 1rem;
+$margen-top-cel: 6rem;
+
+
+@mixin cel {
+  @media (max-width: #{$cel}) {
+    @content;
+  }
+}
+
+@mixin nocel {
+  @media (min-width: #{$nocel}) {
+    @content;
+  }
+}
+
+@mixin tableta_land {
+  @media (min-width: #{$tableta-land}) and (max-width: #{$hd - 1px}) {
+    @content;
+  }
+}
+
+@mixin tableta {
+  @media (min-width: #{$tableta - 1px}) and (max-width: #{$tableta-land - 1px}) {
+    @content;
+  }
+}
+
+@mixin hd {
+  @media (min-width: #{$hd}) and (max-width: #{$hdplus}) {
+    @content;
+  }
+}
+
+@mixin hdplus {
+  @media (min-width: #{$hdplus}) {
+    @content;
+  }
+}
+// animaciones 
+.anime{
+  transition: all .2s ease-in-out;
+  }
+
+.sombra{
+  box-shadow: 0px 4px 19px 0px rgba(205, 160, 109, 0.6);
+}

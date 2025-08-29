@@ -1,0 +1,158 @@
+@use "variables" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap");
+
+html {
+  box-sizing: border-box;
+  font-size: clamp(10px, 0.9vw, 22px);
+  font-family: "Montserrat Alternates", sans-serif;
+  font-weight: 100;
+  background: white;
+  scroll-behavior: smooth;
+
+  @include hd {
+    font-size: clamp(10px, 0.9vw, 20px);
+  }
+  @include cel {
+    font-size: clamp(16px, 1.8vw, 18px);
+  }
+  @include hdplus {
+    font-size: clamp(14px, 7vw, 22px);
+  }
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+body {
+  position: relative;
+}
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-weight: normal;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  line-height: 1em;
+  font-family: "Playfair Display", serif;
+  padding-bottom: 0.7rem;
+  color: $secundario;
+}
+h1 {
+  font-size: clamp(2.9rem, 5vw, 7vw);
+}
+h2 {
+  font-size: clamp(2.2em, 2vw, 30vw);
+  color: $acento;
+  @include hd {
+    font-size: clamp(3em, 2vw, 50vw);
+  }
+}
+
+ol,
+ul {
+  list-style: none;
+}
+li {
+  list-style: disc;
+  /* list-style-position: inside; */
+  margin-left: 1.5rem;
+  margin-bottom: 0.2rem;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+  font-style: italic;
+  background-size: cover;
+  shape-margin: 0.75rem;
+}
+a {
+  text-decoration: none;
+  display: inline-block;
+  color: $primario;
+}
+.selected {
+  color: $acento;
+  text-decoration: underline;
+  font-weight: 700;
+}
+p {
+  margin-bottom: 0.6rem;
+  color: $primario;
+  @include cel {
+    line-height: 1.4;
+  }
+}
+p:last-child {
+  margin-bottom: 0rem;
+}
+b {
+  font-weight: bold;
+}
+//flex
+.flex {
+  display: flex;
+  gap: $margen-min;
+  flex-wrap: wrap;
+}
+// grid
+.grid {
+  display: grid;
+  grid-template-columns: [pantalla-start] 5vw [extra-start] 5vw [contenido-start] 1fr [contenido-end] 5vw [extra-end] 5vw [pantalla-end];
+  @include hd {
+    grid-template-columns: [pantalla-start] 2vw [extra-start] 6vw [contenido-start] 1fr [contenido-end] 6vw [extra-end] 2vw [pantalla-end];
+  }
+  @include hdplus {
+    grid-template-columns: [pantalla-start] 3vw [extra-start] 6vw [contenido-start] 1fr [contenido-end] 6vw [extra-end] 3vw [pantalla-end];
+  }
+}
+.contenido > * {
+  grid-column: contenido;
+  @include cel {
+    grid-column: pantalla;
+  }
+}
+.extra > * {
+  grid-column: extra;
+}
+.pantalla > * {
+  grid-column: pantalla;
+}
+.pantalla-izq > * {
+  grid-column: pantalla-start / contenido-end;
+  @include cel {
+    grid-column: pantalla;
+  }
+}
+.pantalla-der > * {
+  grid-column: contenido-start / pantalla-end;
+  // @include cel {
+  //   grid-column: pantalla;
+  // }
+}
+.pantalla-der-especial > * {
+  grid-column: contenido-start / pantalla-end;
+  @include cel {
+    grid-column: contenido / pantalla-end;
+  }
+}
+.pantalla-reservar > * {
+  grid-column: contenido;
+}
