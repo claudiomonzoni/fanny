@@ -1,14 +1,18 @@
 ---
-interface Props {
-	title: string;
-	description: string;
-}
+import Footer from "@components/Footer.astro";
+import Nav from "../components/Nav.astro";
 
-const { title, description } = Astro.props;
-import '@styles/global.scss';
+interface Props {
+  title?: string;
+  description?: string;
+}
+const { title , description } = Astro.props;
+//styles
+import '../styles/global.scss';
+
+//locale
 const currentLocale = Astro.currentLocale;
 ---
-
 <!doctype html>
 <html lang="en">
 	<head>
@@ -20,15 +24,8 @@ const currentLocale = Astro.currentLocale;
 		<meta name="description" content={description} />
 	</head>
 	<body>
+		<Nav />
 		<slot />
+		<Footer />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>

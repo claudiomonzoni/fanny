@@ -1,0 +1,20 @@
+---
+const currentLang = Astro.currentLocale ?? "en"; // default en
+let targetLang: string;
+let targetUrl: string;
+
+if (currentLang === "en") {
+  // En inglés → link al francés
+  targetLang = "fr";
+  targetUrl = "/fr" + Astro.url.pathname;
+} else {
+  // En francés → link al inglés
+  targetLang = "en";
+  // Reemplaza solo el prefijo /fr en el pathname
+  const cleanPath = Astro.url.pathname.replace(/^\/fr/, "") || "/";
+  targetUrl = cleanPath + Astro.url.search + Astro.url.hash;
+}
+const newUrl = new URL("/api/data", Astro.url);
+    console.log(newUrl.origin);
+---
+<a href={`${newUrl.origin}${targetUrl}`}>{targetLang}</a>

@@ -1,0 +1,60 @@
+--- 
+import { getRelativeLocaleUrl } from "astro:i18n";
+const home = getRelativeLocaleUrl("fr", "/");
+
+---
+<footer class="grid contenido" id="footer">
+  <div class="contanedor">
+    <nav>
+        <ul>
+            <li><a href={home}>home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">section</a></li>
+        </ul>
+    </nav>
+    <p>&copy; {new Date().getFullYear()} My Website. All rights reserved.</p>
+  </div>
+
+  <style lang="scss">
+    @use '../styles/variables.scss' as *;
+
+    #footer {
+      background-color: $secundario;
+      color: white;
+      padding: clamp(1rem, 5vw, 7vw) 0;
+      text-align: center;
+      margin-top: 2rem;
+
+      .contanedor {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+      }
+
+      nav ul li a {
+        color: white;
+        text-decoration: none;
+        transition: color 0.3s ease;
+        
+        &:hover {
+            color: $primario;
+        }
+    }
+    
+    p {
+        margin: 0;
+        color: white;
+        font-size: 0.9rem;
+      }
+    }
+
+  </style>
