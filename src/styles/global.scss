@@ -1,6 +1,6 @@
 @use "variables" as *;
 
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Montserrat+Alternates:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playwrite+DE+SAS:wght@100..400&display=swap');
 
 html {
   box-sizing: border-box;
@@ -58,7 +58,7 @@ h1 {
 }
 h2 {
   font-size: clamp(2.2em, 2vw, 30vw);
-  color: $acento;
+  color: $oscuro;
   @include hd {
     font-size: clamp(3em, 2vw, 50vw);
   }
@@ -89,7 +89,7 @@ a {
   color: $primario;
 }
 .selected {
-  color: $acento;
+  color: $oscuro;
   text-decoration: underline;
   font-weight: 700;
 }

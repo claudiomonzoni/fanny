@@ -2,12 +2,20 @@
 import LangSelect from "./LangSelect.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
 const home = getRelativeLocaleUrl("fr", "/");
+const therapy = getRelativeLocaleUrl("fr", "/");
+const circles = getRelativeLocaleUrl("fr", "/");
+const about = getRelativeLocaleUrl("fr", "/");
+const contact = getRelativeLocaleUrl("fr", "/");
 ---
 
 <nav class="nav-main">
   <div class="grid contenido">
     <div id="menu">
-      <div class="logo">Aqui el logo</div>
+      <div class="logo">
+      <a href={home}>
+        <img src="./fanny-vandewiele.svg" alt="fanny vandewiele" />
+      </a>
+      </div>
       
       <button class="hamburger" aria-label="Menu">
         <span></span>
@@ -18,16 +26,19 @@ const home = getRelativeLocaleUrl("fr", "/");
       <div class="nav-content">
         <ul>
           <li>
-            <a href={home}>Home</a>
+            <a href={therapy}>Therapy</a>
           </li>
           <li>
-            <a href="/about">About</a>
+            <a href={circles}> Women's Circles</a>
           </li>
           <li>
-            <a href="/contact">Contact</a>
+            <a href={about}> About me</a>
+          </li>
+          <li>
+            <a href={contact}> Contact</a>
           </li>
         </ul>
-        <div class="selector">
+        <div class="lang">
           <LangSelect />
         </div>
       </div>
@@ -66,6 +77,14 @@ const home = getRelativeLocaleUrl("fr", "/");
 
   .logo {
     z-index: 2;
+    img{
+      height: 5rem;
+      width: auto;
+      @include cel {
+        height: 4.5rem;
+        padding-left: 1rem;
+      }
+    }
   }
 
   .nav-content {
@@ -88,7 +107,6 @@ const home = getRelativeLocaleUrl("fr", "/");
   nav a {
     text-decoration: none;
     color: #333;
-    font-weight: bold;
     transition: color 0.3s ease;
     
     &:hover {
@@ -110,7 +128,7 @@ const home = getRelativeLocaleUrl("fr", "/");
       display: block;
       width: 28px;
       height: 2px;
-      background-color: $acento;
+      background-color: $oscuro;
       margin: 5px 0;
       transition: all 0.3s ease;
       border-radius: 3px;
@@ -133,7 +151,7 @@ const home = getRelativeLocaleUrl("fr", "/");
         background-color: #f8f9fa;
         flex-direction: column;
         justify-content: center;
-        padding: 2rem;
+        // padding: 2rem;
         transition: right 0.5s ease;
 
         &.active {
@@ -148,18 +166,17 @@ const home = getRelativeLocaleUrl("fr", "/");
       width: 100%;
       
       li {
-        width: 100%;
         text-align: center;
       }
       
       a {
         display: block;
         padding: 1rem 0;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid #bbbbbb;
       }
     }
-
-    .selector {
+    
+    .lang {
       margin-top: 2rem;
     }
 
