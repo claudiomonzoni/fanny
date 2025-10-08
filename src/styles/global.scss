@@ -5,7 +5,7 @@
 html {
   box-sizing: border-box;
   font-size: clamp(10px, 0.9vw, 22px);
-  font-family: "Montserrat Alternates", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 100;
   background: white;
   scroll-behavior: smooth;
@@ -69,10 +69,8 @@ ul {
   list-style: none;
 }
 li {
-  list-style: disc;
+  list-style: none;
   /* list-style-position: inside; */
-  margin-left: 1.5rem;
-  margin-bottom: 0.2rem;
 }
 
 img {

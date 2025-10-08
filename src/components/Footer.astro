@@ -1,30 +1,92 @@
---- 
-import { getRelativeLocaleUrl } from "astro:i18n";
-const home = getRelativeLocaleUrl("fr", "/");
-
 ---
+import { getRelativeLocaleUrl } from "astro:i18n";
+
+// Obtener el idioma actual de la URL
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith("/fr") ? "fr" : "en";
+
+// Textos de navegación según el idioma
+const footerTexts = {
+  en: {
+    tagline: "A gentle journey into the here and now",
+    therapy: "Therapy",
+    circles: "Women's Circles",
+    about: "About me",
+    contact: "Contact",
+    copyright: "All rights reserved.",
+  },
+  fr: {
+    tagline: "Un doux voyage dans l'ici et maintenant",
+    therapy: "Thérapie",
+    circles: "Cercles de femmes",
+    about: "À propos de moi",
+    contact: "Contact",
+    copyright: "Tous droits réservés.",
+  },
+};
+
+// Usar el idioma detectado para las URLs
+const home = getRelativeLocaleUrl(lang, "/");
+const therapy = getRelativeLocaleUrl(lang, "/therapy");
+const circles = getRelativeLocaleUrl(lang, "/womens-circle");
+const about = getRelativeLocaleUrl(lang, "/about-me");
+const contact = getRelativeLocaleUrl(lang, "/contact");
+
+// Obtener los textos para el idioma actual
+const texts = footerTexts[lang];
+---
+
 <footer class="grid contenido" id="footer">
   <div class="contanedor">
+    <img
+      class="logoFooter"
+      src="/fanny-vandewiele.svg"
+      alt="fanny vandewiele"
+    />
+    <p>{texts.tagline}</p>
     <nav>
-        <ul>
-            <li><a href={home}>home</a></li>
-            <li><a href="#">about</a></li>
-            <li><a href="#">section</a></li>
-        </ul>
+      <ul>
+        <li>
+          <a href={therapy}>{texts.therapy}</a>
+        </li>
+        <li>
+          <a href={circles}>{texts.circles}</a>
+        </li>
+        <li>
+          <a href={about}>{texts.about}</a>
+        </li>
+        <li>
+          <a href={contact}>{texts.contact}</a>
+        </li>
+      </ul>
     </nav>
-    <p>&copy; {new Date().getFullYear()} My Website. All rights reserved.</p>
+    <ul class="validacion">
+      <li>
+        <a href="https://asca.ch/" target="_blank"
+          ><img src="/asca-logo.png" alt="ASCA" /></a>
+      </li>
+      <li>
+        <a href="https://admp.org.uk/" target="_blank"
+          ><img src="/admpuk-logo.png" alt="admnpuk" /></a>
+      </li>
+    </ul>
+    <p class="copy">
+      &copy; {new Date().getFullYear()} Fanny Vandewiele. {texts.copyright}
+    </p>
   </div>
 
   <style lang="scss">
-    @use '../styles/variables.scss' as *;
+    @use "../styles/variables.scss" as *;
 
     #footer {
-      background-color: $secundario;
-      color: white;
-      padding: clamp(1rem, 5vw, 7vw) 0;
       text-align: center;
-      margin-top: 2rem;
-
+      margin: 2rem 0;
+      color: $primario;
+      border-top: solid 1px $primario;
+      padding: clamp(5rem, 4vw, 7vw) 0;
+      // @include cel {
+      //   padding: 6rem 0 3rem 0;
+      // }
       .contanedor {
         display: flex;
         flex-direction: column;
@@ -33,28 +95,46 @@ const home = getRelativeLocaleUrl("fr", "/");
       }
 
       nav ul {
-        list-style: none;
         padding: 0;
         display: flex;
         gap: 1rem;
         justify-content: center;
+        @include cel {
+          padding: 1rem;
+          flex-direction: column;
+        }
       }
 
       nav ul li a {
-        color: white;
+        color: $oscuro;
         text-decoration: none;
         transition: color 0.3s ease;
-        
         &:hover {
-            color: $primario;
+          color: $primario;
         }
-    }
-    
-    p {
-        margin: 0;
-        color: white;
-        font-size: 0.9rem;
+      }
+      .logoFooter {
+        width: 15rem;
+        height: auto;
+      }
+      p {
+        margin: 0.5rem 0;
+      }
+      .copy {
+        font-size: 0.8rem;
+      }
+      .validacion {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        align-items: center;
+        margin-top: 1rem;
+
+        img {
+          width: 4rem;
+          height: auto;
+        }
       }
     }
-
   </style>
+</footer>

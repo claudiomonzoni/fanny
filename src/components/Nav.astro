@@ -1,11 +1,57 @@
 ---
 import LangSelect from "./LangSelect.astro";
 import { getRelativeLocaleUrl } from "astro:i18n";
-const home = getRelativeLocaleUrl("fr", "/");
-const therapy = getRelativeLocaleUrl("fr", "/");
-const circles = getRelativeLocaleUrl("fr", "/");
-const about = getRelativeLocaleUrl("fr", "/");
-const contact = getRelativeLocaleUrl("fr", "/");
+
+// Obtener el idioma actual de la URL
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith('/fr') ? 'fr' : 'en';
+
+// Textos de navegación según el idioma
+const navTexts = {
+  en: {
+    home: "/",
+    therapy: "Therapy",
+    circles: "Women's Circles",
+    about: "About me",
+    contact: "Contact"
+  },
+  fr: {
+    home: "/fr/",
+    therapy: "Thérapie",
+    circles: "Cercles de femmes",
+    about: "À propos de moi",
+    contact: "Contact"
+  }
+};
+
+// Usar el idioma detectado para las URLs
+const home = getRelativeLocaleUrl(lang, "/");
+const therapy = getRelativeLocaleUrl(lang, "/therapy");
+const circles = getRelativeLocaleUrl(lang, "/womens-circle");
+const about = getRelativeLocaleUrl(lang, "/about-me");
+const contact = getRelativeLocaleUrl(lang, "/contact");
+
+// Obtener los textos para el idioma actual
+const texts = navTexts[lang];
+
+
+// Función para obtener el nombre limpio de la página actual
+function getCleanPageName(path: string): string {
+  // Eliminar slashes al inicio y final
+  let cleanPath = path.replace(/^\/|\/$/g, '');
+  
+  // Eliminar el prefijo de idioma si existe
+  if (cleanPath.startsWith('fr/')) {
+    cleanPath = cleanPath.substring(3);
+  }
+  
+  // Si está vacío, es la página de inicio
+  return cleanPath || '/';
+}
+
+// Obtener el nombre limpio de la página actual
+const currentPage = getCleanPageName(currentPath);
+console.log(currentPage)
 ---
 
 <nav class="nav-main">
@@ -25,17 +71,17 @@ const contact = getRelativeLocaleUrl("fr", "/");
 
       <div class="nav-content">
         <ul>
-          <li>
-            <a href={therapy}>Therapy</a>
+          <li class={currentPage === "therapy" ? "active" : ""}>
+            <a href={therapy}>{texts.therapy}</a>
           </li>
-          <li>
-            <a href={circles}> Women's Circles</a>
+          <li class={currentPage === "womens-circle" ? "active" : ""}>
+            <a href={circles}>{texts.circles}</a>
           </li>
-          <li>
-            <a href={about}> About me</a>
+          <li class={currentPage === "about-me" ? "active" : ""}>
+            <a href={about}>{texts.about}</a>
           </li>
-          <li>
-            <a href={contact}> Contact</a>
+          <li class={currentPage === "contact" ? "active" : ""}>
+            <a href={contact}>{texts.contact}</a>
           </li>
         </ul>
         <div class="lang">
@@ -46,6 +92,63 @@ const contact = getRelativeLocaleUrl("fr", "/");
   </div>
 </nav>
 <div id="margenNav"></div>
+
+
+
+<script>
+  // Variables
+  let lastScroll = 0;
+  const nav = document.querySelector('.nav-main');
+  const hamburger = document.querySelector('.hamburger');
+  const navContent = document.querySelector('.nav-content');
+  const menuLinks = document.querySelectorAll('#menu a');
+
+  // Toggle menu
+  function toggleMenu() {
+    hamburger?.classList.toggle('active');
+    navContent?.classList.toggle('active');
+    document.body.style.overflow = navContent?.classList.contains('active') ? 'hidden' : '';
+  }
+
+  // Hide/Show nav on scroll
+  function handleScroll() {
+    const currentScroll = window.scrollY;
+    
+    if (currentScroll > lastScroll && currentScroll > 100) {
+      // Scrolling down - hide nav
+      (nav as HTMLElement)?.style.setProperty('transform', 'translateY(-100%)');
+    } else {
+      // Scrolling up - show nav
+      (nav as HTMLElement)?.style.setProperty('transform', 'translateY(0)');
+    }
+    
+    lastScroll = currentScroll;
+  }
+
+  // Event Listeners
+  hamburger?.addEventListener('click', toggleMenu);
+
+  // Close menu when clicking a link
+  menuLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      if (navContent?.classList.contains('active')) {
+        toggleMenu();
+      }
+    });
+  });
+
+  // Throttle scroll event
+  let ticking = false;
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        handleScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+</script>
 
 <style lang="scss">
   @use '../styles/variables.scss' as *;
@@ -61,12 +164,14 @@ const contact = getRelativeLocaleUrl("fr", "/");
     top: 0;
     left: 0;
     right: 0;
-    background-color: #f8f9fa;
+    background: linear-gradient(0deg,rgba(139, 141, 144, 0) 0%, rgb(255, 255, 255) 30%);
     padding: 1rem 0;
     transition: transform 0.3s ease;
     z-index: 1000;
   }
-
+  .active{
+  border-bottom: solid 1px $primario;
+  }
   #menu {
     display: flex;
     justify-content: space-between;
@@ -94,16 +199,39 @@ const contact = getRelativeLocaleUrl("fr", "/");
   }
 
   ul {
-    list-style: none;
     display: flex;
     gap: 1rem;
     margin: 0;
     padding: 0;
-    li {
-      list-style: none;
-    }
+    position: relative;
+    padding-bottom: 15px;
+    
+    &::after {
+          content: "";
+          position: absolute;
+          bottom: -1rem;
+          left: 0;
+          width: 100%; /* Cambiado de 100px a 100% para que ocupe todo el ancho del ul */
+          height: 15px;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='15' viewBox='0 0 200 15'%3E%3Cpath d='M0,7.5 C33.3,2.5 33.3,12.5 66.6,7.5 C100,2.5 100,12.5 133.3,7.5 C166.6,2.5 166.6,12.5 200,7.5' stroke='%23C9A9A6' fill='none' stroke-width='1'/%3E%3C/svg%3E");
+          background-repeat: no-repeat;
+          background-position: center;
+          background-size: 100% auto; /* Asegura que el SVG se estire para cubrir todo el ancho */
+          @include cel {
+            bottom: 155%;
+          }
+        }
   }
-
+  .lang {
+      background: $primario;
+      border-radius: 20px;
+      padding: 8px 15px;
+      :global(a){
+        color: $muyligero!important;
+        font-size: .8rem;
+      }
+ 
+    }
   nav a {
     text-decoration: none;
     color: #333;
@@ -165,6 +293,7 @@ const contact = getRelativeLocaleUrl("fr", "/");
       align-items: center;
       width: 100%;
       
+      
       li {
         text-align: center;
       }
@@ -176,9 +305,7 @@ const contact = getRelativeLocaleUrl("fr", "/");
       }
     }
     
-    .lang {
-      margin-top: 2rem;
-    }
+
 
     // Hamburger animation
     .hamburger.active {
@@ -199,58 +326,3 @@ const contact = getRelativeLocaleUrl("fr", "/");
   }
 </style>
 
-<script>
-  // Variables
-  let lastScroll = 0;
-  const nav = document.querySelector('.nav-main');
-  const hamburger = document.querySelector('.hamburger');
-  const navContent = document.querySelector('.nav-content');
-  const menuLinks = document.querySelectorAll('#menu a');
-
-  // Toggle menu
-  function toggleMenu() {
-    hamburger?.classList.toggle('active');
-    navContent?.classList.toggle('active');
-    document.body.style.overflow = navContent?.classList.contains('active') ? 'hidden' : '';
-  }
-
-  // Hide/Show nav on scroll
-  function handleScroll() {
-    const currentScroll = window.scrollY;
-    
-    if (currentScroll > lastScroll && currentScroll > 100) {
-      // Scrolling down - hide nav
-      (nav as HTMLElement)?.style.setProperty('transform', 'translateY(-100%)');
-    } else {
-      // Scrolling up - show nav
-      (nav as HTMLElement)?.style.setProperty('transform', 'translateY(0)');
-    }
-    
-    lastScroll = currentScroll;
-  }
-
-  // Event Listeners
-  hamburger?.addEventListener('click', toggleMenu);
-
-  // Close menu when clicking a link
-  menuLinks.forEach(link => {
-    link.addEventListener('click', () => {
-      if (navContent?.classList.contains('active')) {
-        toggleMenu();
-      }
-    });
-  });
-
-  // Throttle scroll event
-  let ticking = false;
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      window.requestAnimationFrame(() => {
-        handleScroll();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-</script>
-</style>
