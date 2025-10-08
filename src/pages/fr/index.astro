@@ -1,24 +1,18 @@
 ---
+import Encabezados from '@components/Encabezados.astro';
 import Layout from '@layouts/Layout.astro';
-import Loader from '@components/Loader.astro';
 //i18n
 import { getRelativeLocaleUrl } from 'astro:i18n';
 const prueba = getRelativeLocaleUrl("fr", "prueba");
-
 ---
 
-<Layout title="Fanny" description="Welcome to the home page">
-       <Loader 
-  duration={5000}  
-  loadingText="Please wait..."  
-/>
-  <main>
+<Layout title="Fanny" description="Welcome to the home page FR">
+
+    <main>
         <div class="grid contenido">
 
-            <h1>Iniciando FR!</h1>
-            <img src="/1.jpg" alt="carrousel image 1" />
-            <img src="/2.png" alt="carrousel image 2" />
-            <img src="/3.png" alt="carrousel image 3" />
+            <Encabezados txtayuda="Espace sacré" encabezado="Là où le corps et les émotions peuvent s'exprimer, bouger et se déplacer" />
+           
         </div>
     </main>
 </Layout>

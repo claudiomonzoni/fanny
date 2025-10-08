@@ -1,0 +1,34 @@
+---
+interface Props {
+    txtayuda: string;
+    encabezado: string;
+}
+const{txtayuda,encabezado} = Astro.props;
+---
+
+<h1>
+    <span>{txtayuda}</span>
+    {encabezado}
+</h1>
+
+<style lang="scss">
+
+    @use "../styles/variables.scss" as *;
+
+    h1{
+       color:$primario; 
+       position: relative;
+       text-align: center;
+       margin: 20vh 0;
+       line-height: 1.5cap;
+       span{
+        position: absolute;
+        color: $oscuro;
+        font-size: clamp(1.3rem, 2vw, 2rem);
+        top: clamp(-8rem, -5vw, -5rem);
+        left: 50%;
+        transform: translateX(-50%);
+        font-family: "Montserrat Alternates", sans-serif;
+       }
+    }
+</style>
