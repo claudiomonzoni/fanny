@@ -154,3 +154,9 @@ b {
 .pantalla-reservar > * {
   grid-column: contenido;
 }
+
+.fondo-womens{
+  background: url(/womens-circle-bg.webp) no-repeat;
+  background-size: contain;
+  background-position: center;
+}
