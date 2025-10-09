@@ -1,0 +1,36 @@
+---
+interface Props {
+  href: string;
+  text: string;
+  target?: boolean;
+  className?: string;
+}
+const { href, text, target, className, ...rest } = Astro.props;
+---
+
+<a href={href} class={className} target={target ? "_blank" : "_self"} {...rest}
+  >{text}</a
+>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as *;
+
+  a {
+    padding: 0.7rem 2rem;
+    border-radius: 1rem;
+    text-transform: capitalize;
+    transition: all 0.3s ease-in-out;
+    margin: 1rem 0.2rem;
+    &:hover {
+      background-color: $oscuro;
+    }
+  }
+  .oscuro {
+    background-color: $primario;
+    color: $muyligero;
+  }
+  .claro {
+    background-color: $muyligero;
+    color: $primario;
+  }
+</style>

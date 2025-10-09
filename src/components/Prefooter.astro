@@ -1,0 +1,45 @@
+---
+import Btn from "./Btn.astro";
+
+interface Props {
+  span?: string;
+  encabezado: string;
+  parrafo?: string;
+  btntxt?: string;
+  href?: string;
+}
+const { span, encabezado, parrafo, btntxt, href } = Astro.props;
+---
+
+<div class="prefooter">
+  {span && <span>{span}</span>}
+  <h2>{encabezado}</h2>
+  {parrafo && <p>{parrafo}</p>}
+  {href && btntxt && <Btn href={href} text={btntxt} className="oscuro" />}
+</div>
+
+<style lang="scss">
+  @use "../styles/variables.scss" as *;
+
+  .prefooter {
+    text-align: center;
+    color: $oscuro;
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+  span {
+    font-size: clamp(1rem, 1.3vw, 2rem);
+    color: $oscuro;
+    margin-bottom: clamp(1rem, 2vw, 2rem);
+    display: block;
+  }
+  h2 {
+    margin: 0 auto;
+    max-width: 80%;
+    font-size: clamp(1.7rem, 3vw, 3rem);
+    line-height: 1.5cap;
+    color: $primario;
+    margin-bottom: 2rem;
+    font-family: "Playwrite DE SAS", cursive;
+  }
+</style>
