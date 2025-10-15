@@ -200,7 +200,7 @@ import Layout from "@layouts/Layout.astro";
     background-size: cover;
     background-position: center;
     display: flex;
-    min-height: 45dvh;
+    height: 48vh;
     #margen{
       flex: 3;
     }
@@ -219,17 +219,20 @@ import Layout from "@layouts/Layout.astro";
         }
      
     }
+    @include tableta{
+      height: 20vh;
+    }
     @include cel{
       margin-top: 0;
         background: url("/fanny-vandewiele-home-cel.webp") no-repeat;
         background-position: center bottom;
         background-size: 100%;
-        //   min-height: 80dvh;
+        height: 80vh;
       flex-wrap: wrap;
       #margen{
         flex: 1 0 100%;
         order: 2;
-        height: 40dvh;
+        height: 40vh;
       }
      .centro {
         order: 1;
