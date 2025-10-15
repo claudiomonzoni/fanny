@@ -48,7 +48,7 @@ h1,
 h2,
 h3,
 h4 {
-  line-height: 1em;
+  line-height: 1.5em;
   font-family: "Playwrite DE SAS", cursive;
   padding-bottom: 0.7rem;
   color: $secundario;
@@ -57,11 +57,10 @@ h1 {
   font-size: clamp(2.9rem, 5vw, 7vw);
 }
 h2 {
-  font-size: clamp(2.2em, 2vw, 30vw);
-  color: $oscuro;
-  @include hd {
-    font-size: clamp(3em, 2vw, 50vw);
-  }
+  font-size: clamp(1.6em, 1.6vw, 8vw);
+  color: $primario;
+  margin-bottom: 1rem;
+
 }
 
 ol,
@@ -93,7 +92,7 @@ a {
 }
 p {
   margin-bottom: 0.6rem;
-  color: $primario;
+  color: $oscuro;
   @include cel {
     line-height: 1.4;
   }
@@ -141,9 +140,9 @@ b {
 }
 .pantalla-der > * {
   grid-column: contenido-start / pantalla-end;
-  // @include cel {
-  //   grid-column: pantalla;
-  // }
+  @include cel {
+    grid-column: pantalla;
+  }
 }
 .pantalla-der-especial > * {
   grid-column: contenido-start / pantalla-end;
@@ -159,4 +158,12 @@ b {
   background: url(/womens-circle-bg.webp) no-repeat;
   background-size: contain;
   background-position: center;
+}
+.centro{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .conte{
+    width: 80%;
+  }
 }
