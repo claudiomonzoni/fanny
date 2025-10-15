@@ -1,0 +1,141 @@
+--- 
+// Obtener el idioma actual de la URL
+const currentPath = Astro.url.pathname;
+const lang = currentPath.startsWith("/fr") ? "fr" : "en";
+
+const Traduccion= {
+    en: {
+        "testimoniales": "Testimonials",
+        "testimoniales-texto": "Testimonials from our clients",
+    },
+    fr: {
+        "testimoniales": "Témoignages",
+        "testimoniales-texto": "Témoignages de nos clients",
+    },
+}
+
+const TestimoniosH2 = Traduccion[lang];
+---
+
+<div id="testimoniales" >
+  <h2>{TestimoniosH2.testimoniales}</h2>
+  <div class="swiper testimoniales-swiper">
+    <div class="swiper-wrapper">
+
+        
+      <div class="swiper-slide">
+        <div class="Testimonio">
+          <p>
+            "After falling and injuring my head and back, I was dealing with persistent pain and discomfort. I was also feeling overwhelmed with sadness, anger, and fear. The therapy session helped me find calm and patience during my recovery. I learned how to manage those emotions and channel them in a healthier way. The session not only eased my physical pain but also guided me through the emotional challenges, making my healing process much more manageable."
+          </p>
+          <div class="name">Alin</div>
+          <p class="case">A traumatic fall</p>
+        </div>
+      </div>
+
+
+      <div class="swiper-slide">
+        <div class="Testimonio">
+          <p>
+            "I had been struggling with chronic hip pain for years, and after just five therapy sessions I noticed a remarkable difference. The treatment was both gentle and effective, restoring my mobility and greatly reducing my discomfort. I feel lighter, freer in my movements, and finally able to enjoy daily life without constant pain. Truly transformative care."
+          </p>
+          <div class="name">Jonathan</div>
+          <p class="case">Hip pain</p>
+        </div>
+      </div>
+  
+
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+
+<style lang="scss">
+  @use '../styles/variables.scss' as *;
+  
+  #testimoniales {
+    padding: 4rem 0;
+    background: $ligero;
+    text-align: center;
+    position: relative;
+    
+    h2 {
+      margin-bottom: 2rem;
+      color: $primario;
+    }
+  }
+  
+  .Testimonio {
+
+    background: $muyligero;
+    border-radius: 10px;
+    padding: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: $margen-cel auto; /* Changed from "margin: $margen-cel 0" to use auto for horizontal centering */
+    max-width: 60%;
+    /* Removed left: 50% and transform: translateX(-50%) as they're not needed with margin: auto */
+    
+    p {
+      font-style: italic;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+      flex-grow: 1;
+    }
+    
+    .name {
+      font-weight: bold;
+      font-size: 1.2rem;
+      color: $primario;
+      margin-bottom: 0.3rem;
+    }
+    
+    .case {
+      font-size: 0.9rem;
+      color:$oscuro;
+      margin: 0;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .Testimonio {
+      padding: 1.5rem;
+      max-width: 80%;
+    }
+  }
+</style>
+<!-- 
+<script>
+  // Fix for Swiper import
+  import Swiper from 'swiper';
+  import { Pagination, Autoplay } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/pagination';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const swiper = new Swiper('.testimoniales-swiper', {
+      modules: [Pagination, Autoplay],
+      slidesPerView: 1,
+      spaceBetween: 30,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+      breakpoints: {
+        640: {
+          slidesPerView: 1,
+        },
+        768: {
+          slidesPerView: 2,
+        }
+      }
+    });
+  });
+</script> -->
