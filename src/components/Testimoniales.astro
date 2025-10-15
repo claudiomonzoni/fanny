@@ -7,43 +7,55 @@ const Traduccion= {
     en: {
         "testimoniales": "Testimonials",
         "testimoniales-texto": "Testimonials from our clients",
+        "testimonios": [
+            {
+                "texto": "After falling and injuring my head and back, I was dealing with persistent pain and discomfort. I was also feeling overwhelmed with sadness, anger, and fear. The therapy session helped me find calm and patience during my recovery. I learned how to manage those emotions and channel them in a healthier way. The session not only eased my physical pain but also guided me through the emotional challenges, making my healing process much more manageable.",
+                "nombre": "Alin",
+                "caso": "A traumatic fall"
+            },
+            {
+                "texto": "I had been struggling with chronic hip pain for years, and after just five therapy sessions I noticed a remarkable difference. The treatment was both gentle and effective, restoring my mobility and greatly reducing my discomfort. I feel lighter, freer in my movements, and finally able to enjoy daily life without constant pain. Truly transformative care.",
+                "nombre": "Jonathan",
+                "caso": "Hip pain"
+            }
+        ]
     },
     fr: {
         "testimoniales": "Témoignages",
         "testimoniales-texto": "Témoignages de nos clients",
-    },
+        "testimonios": [
+            {
+                "texto": "Après être tombée et m'être blessée à la tête et au dos, je souffrais de douleurs et d'inconfort persistants. Je me sentais également submergée par la tristesse, la colère et la peur. La séance de thérapie m'a aidée à trouver le calme et la patience pendant ma convalescence. J'ai appris à gérer ces émotions et à les canaliser de manière plus saine. La séance a non seulement soulagé ma douleur physique, mais m'a également guidée à travers les défis émotionnels, rendant mon processus de guérison beaucoup plus gérable.",
+                "nombre": "Alin",
+                "caso": "Une chute traumatique"
+            },
+            {
+                "texto": "Je souffrais de douleurs chroniques à la hanche depuis des années, et après seulement cinq séances de thérapie, j'ai remarqué une différence remarquable. Le traitement était à la fois doux et efficace, restaurant ma mobilité et réduisant considérablement mon inconfort. Je me sens plus léger, plus libre dans mes mouvements, et enfin capable de profiter de la vie quotidienne sans douleur constante. Des soins vraiment transformateurs.",
+                "nombre": "Jonathan",
+                "caso": "Douleur à la hanche"
+            }
+        ]
+    }
 }
 
 const TestimoniosH2 = Traduccion[lang];
+const testimonios = Traduccion[lang].testimonios;
 ---
 
 <div id="testimoniales" >
   <h2>{TestimoniosH2.testimoniales}</h2>
   <div class="swiper testimoniales-swiper">
     <div class="swiper-wrapper">
-
-        
-      <div class="swiper-slide">
-        <div class="Testimonio">
-          <p>
-            "After falling and injuring my head and back, I was dealing with persistent pain and discomfort. I was also feeling overwhelmed with sadness, anger, and fear. The therapy session helped me find calm and patience during my recovery. I learned how to manage those emotions and channel them in a healthier way. The session not only eased my physical pain but also guided me through the emotional challenges, making my healing process much more manageable."
-          </p>
-          <div class="name">Alin</div>
-          <p class="case">A traumatic fall</p>
+      
+      {testimonios.map((testimonio) => (
+        <div class="swiper-slide">
+          <div class="Testimonio">
+            <p>"{testimonio.texto}"</p>
+            <div class="name">{testimonio.nombre}</div>
+            <p class="case">{testimonio.caso}</p>
+          </div>
         </div>
-      </div>
-
-
-      <div class="swiper-slide">
-        <div class="Testimonio">
-          <p>
-            "I had been struggling with chronic hip pain for years, and after just five therapy sessions I noticed a remarkable difference. The treatment was both gentle and effective, restoring my mobility and greatly reducing my discomfort. I feel lighter, freer in my movements, and finally able to enjoy daily life without constant pain. Truly transformative care."
-          </p>
-          <div class="name">Jonathan</div>
-          <p class="case">Hip pain</p>
-        </div>
-      </div>
-  
+      ))}
 
     </div>
     <div class="swiper-pagination"></div>
