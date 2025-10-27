@@ -1,15 +1,86 @@
 ---
-import Encabezados from '@components/Encabezados.astro';
-import Layout from '@layouts/Layout.astro';
+import Encabezados from "@components/Encabezados.astro";
+import Layout from "@layouts/Layout.astro";
+import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render-template.js";
 ---
 
-<Layout title="Fanny Vandewiele / Sacred Place" description="One to One Theraphy">
+<Layout
+  title="Fanny Vandewiele / Sacred Place"
+  description="One to One Theraphy"
+>
+  <main>
+    <div class="grid contenido">
+      <Encabezados
+        txtayuda="One to One Therapy"
+        encabezado="I meet you where you are, in the here and now"
+        marginEspecial
+      />
+      <div class="centrarYlimitar">
+        <h2>
+          Listening to your body, the spoken and unspoken words, and together we
+          find what is needed.
+        </h2>
+        <p>
+          Each person is different. Some need movement to access their struggle,
+          some a healing hands-on approach, some need words, and others need a
+          safe physical space in which to be held.
+        </p>
+      </div>
+    </div>
 
-    <main>
-        <div class="grid contenido">
+    <section class="grid pantalla-izq">
+      <div id="seek">
+        <div class="izq"></div>
+        <div class="der">
+          <h2>When to seek support</h2>
+          <p>
+            Sometimes we need ourselves facing the same closed doors, the same
+            patterns, or the same inner conficts.
+          </p>
+          <p>
+            At times, life’s challenges: whether physical pain, emotional
+            overwhelm, or major transitions, can leave us feeling disconnected
+            from our strength and inner light.
+          </p>
 
-            <Encabezados txtayuda='One to One Therapy' encabezado='I meet you where you are, in the here and now' />
-           
+          <b>Therapy can support you through:</b>
+          <ul>
+            <li>Physical aches and injuries</li>
+            <li>Grief, divorce, or separation</li>
+            <li>Life changes and relocations</li>
+            <li>Surgical interventions (before and after)</li>
+            <li>Emotional blockages or overwhelm</li>
+            <li>Important decisions and transitions</li>
+          </ul>
         </div>
-    </main>
+      </div>
+    </section>
+  </main>
 </Layout>
+
+<style lang="scss">
+  @use "src/styles/variables.scss" as *;
+  #seek {
+    margin: $margen 0;
+    height: 70vh;
+    background: url(/seek-support.webp) no-repeat center left $ligero;
+    background-size: contain;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: $oscuro;
+    .izq, .der{
+        flex: 1;
+    }
+    .der > *{
+        max-width: 60%;
+    }
+    p:last-of-type{
+        margin-bottom: $margen-cel; 
+    }
+  ul{
+    margin-top: .8rem;
+    padding-left: 1rem;
+  }
+  }
+</style>

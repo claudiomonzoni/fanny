@@ -68,8 +68,12 @@ ul {
   list-style: none;
 }
 li {
-  list-style: none;
+  list-style:circle;
+  line-height: 1.5;
   /* list-style-position: inside; */
+}
+b{
+  color: $oscuro;
 }
 
 img {
@@ -165,5 +169,14 @@ b {
   align-items: center;
   .conte{
     width: 80%;
+  }
+}
+
+.centrarYlimitar{
+  text-align: center;
+  max-width: 60%;
+  margin: 0 auto;
+  @include cel {
+    max-width: 80%; 
   }
 }

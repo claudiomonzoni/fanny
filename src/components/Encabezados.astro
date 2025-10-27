@@ -1,41 +1,49 @@
 ---
 interface Props {
-    txtayuda: string;
-    encabezado: string;
+  txtayuda: string;
+  encabezado: string;
+  marginEspecial?: boolean;
 }
-const{txtayuda,encabezado} = Astro.props;
+const { txtayuda, encabezado, marginEspecial } = Astro.props;
 ---
 
-<h1>
+
+
+<h1 class={marginEspecial ? "marginEspecial" : ""}>
     <span>{txtayuda}</span>
     {encabezado}
-</h1>
+  </h1>
 
 <style lang="scss">
+  @use "../styles/variables.scss" as *;
 
-    @use "../styles/variables.scss" as *;
-
-    h1{
-       color:$primario; 
-       position: relative;
-       text-align: center;
-       margin: 20vh 2rem;
-       line-height: 1.5cap;
-       font-size:clamp(2.6rem, 6vw, 7rem);
-       span{
-        position: absolute;
-        color: $oscuro;
-        font-size: clamp(1rem, 1.5vw, 2rem);
-        top: -5.5rem;
-        left: 50%;
-        transform: translateX(-50%);
-        font-family: "Montserrat", sans-serif;
+  h1 {
+    color: $primario;
+    position: relative;
+    text-align: center;
+    margin: 20vh 2rem;
+    line-height: 1.5cap;
+    font-size: clamp(2.6rem, 6vw, 7rem);
+    span {
+      position: absolute;
+      color: $oscuro;
+      font-size: clamp(1rem, 1.5vw, 2rem);
+      top: -5.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      font-family: "Montserrat", sans-serif;
     }
+    @include cel {
+      margin: 12vh 2rem;
+      span {
+        top: -3rem;
+      }
+    }
+  }
+  .marginEspecial {
+    margin: 20vh 2rem 3rem!important;
     @include cel{
-        margin: 12vh 2rem;
-        span{
-            top: -3rem;
-        }
+      margin: 12vh 2rem 2rem!important;
     }
-    }
+  }
 </style>
