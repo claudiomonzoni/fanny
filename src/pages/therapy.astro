@@ -30,7 +30,8 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
 
     <section class="grid pantalla-izq">
       <div id="seek">
-        <div class="izq"></div>
+        <div class="izq">
+        </div>
         <div class="der">
           <h2>When to seek support</h2>
           <p>
@@ -43,7 +44,7 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
             from our strength and inner light.
           </p>
 
-          <b>Therapy can support you through:</b>
+          <p><b>Therapy can support you through:</b></p>
           <ul>
             <li>Physical aches and injuries</li>
             <li>Grief, divorce, or separation</li>
@@ -55,13 +56,73 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
         </div>
       </div>
     </section>
+    <section>
+      <div class="grid pantalla-der">
+        <div id="whatbring">
+          <div class="izq">
+           <div>
+            <h2>What therapy can bring</h2>
+            <ul>
+              <li>
+                Eases physical pain and tension, bringing the body back into
+                balance
+              </li>
+              <li>Clarity in the midst of overwhelm</li>
+              <li>Integration of shocks and transitions</li>
+              <li>Greater resilience and self-expression</li>
+              <li>Tools and anchors to manage strong feelings</li>
+              <li>Improved mood, reduced anxiety, and stress</li>
+              <li>Trust in your body and inner resources</li>
+              <li>More choice and freedom in how you respond to life</li>
+            </ul>
+           </div>
+          </div>
+          <div class="der">
+            <img src="/what-can-bring.webp" alt="what can bring the therapy" />
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="grid contenido">
+<div id="process">
+  <div class="ventana">
+    <div class="conte">
+      <h2>The Therapy Process</h2>
+      <p>My practice is grounded in my academic training, holding UK Master's degrees in Osteopathy and Psychotherapy.</p>
+      <p>I work with:</p>
+      <ul>
+        <li>Children</li>
+        <li>Adults</li>
+        <li>Elderly individuals</li>
+      </ul>
+    </div>
+  </div>
+  <div class="ventana">
+    <img src="/the-process.webp" alt="the process of the therapy">
+  </div>
+  <div class="ventana">
+    <div class="conte">
+     
+      <p>The therapy may include:</p>
+      <ul>
+        <li>Therapeutic Touch</li>
+        <li>Verbal and non-verbal dialogue</li>
+        <li>Movement, music, dance, or art</li>
+        <li>Stillness and silence</li>
+        <li>A spiritual dimension, if it feels right</li>
+      </ul>
+      <p>The process is never about “fixing” but  about shifting what is present, creating  space for expression, connection, and  transformation.</p>
+    </div>
+  </div>
+</div>
+    </section>
   </main>
 </Layout>
 
 <style lang="scss">
   @use "src/styles/variables.scss" as *;
   #seek {
-    margin: $margen 0;
+    margin: $margen 0 0;
     height: 70vh;
     background: url(/seek-support.webp) no-repeat center left $ligero;
     background-size: contain;
@@ -69,18 +130,109 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
     justify-content: center;
     align-items: center;
     color: $oscuro;
-    .izq, .der{
-        flex: 1;
+    .izq,
+    .der {
+      flex: 1;
     }
-    .der > *{
-        max-width: 60%;
+    .der > * {
+      max-width: 60%;
     }
-    p:last-of-type{
-        margin-bottom: $margen-cel; 
+    p:last-of-type {
+      margin-top: $margen-cel;
     }
-  ul{
-    margin-top: .8rem;
-    padding-left: 1rem;
+    ul {
+      margin-top: 0.8rem;
+    }
   }
+  #whatbring {
+    margin: 0 0 $margen;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: $muyligero;
+    background: $oscuro;
+    gap: 2rem;
+    h2 {
+      color: $ligero;
+    }
+    img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      aspect-ratio: 5/4;
+    }
+    .izq,
+    .der {
+      flex: 1;
+    }
+    .izq > *{
+      max-width: 60%;
+     justify-self: center;
+    }
+  }
+  @include cel{
+   
+    #seek, #whatbring{
+      flex-wrap: wrap;
+      gap: 0;
+      .izq, .der{
+        flex: 1 0 100%;
+      }
+      .izq{
+        order: 2;
+      }
+      .der{
+        order: 1;
+      }
+      
+    }
+    #seek{
+      background: none;
+      background-color: $ligero;
+      height: auto;
+    }
+    #whatbring .izq{
+      padding: $margen 0;
+      max-width: 100%;
+    }
+    #whatbring .izq > *{
+      max-width: 70%;
+    }
+    #seek .izq{
+      display: none;
+    }
+    #seek .der{
+      height: auto;
+      order: 1!important;
+      padding: $margen 0;
+    }
+    #seek  .der > * {
+      max-width: 70%;
+      justify-self: center;
+    }
+  }
+
+  #process{
+    display: flex;
+    gap: $margen-cel;
+    margin: $margen 0;
+    .ventana{
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center; 
+      .conte{
+          max-width: 70%;
+        }
+    }
+    @include cel{
+      flex-wrap: wrap;
+      gap: 0;
+      .ventana{
+        flex: 1 0 100%;
+        padding: $margen-cel 0;
+       
+      }
+    }
   }
 </style>

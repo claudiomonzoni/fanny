@@ -66,11 +66,12 @@ h2 {
 ol,
 ul {
   list-style: none;
+  padding-left: 1.6rem;
 }
 li {
   list-style:circle;
   line-height: 1.5;
-  /* list-style-position: inside; */
+ 
 }
 b{
   color: $oscuro;
