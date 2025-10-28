@@ -1,5 +1,6 @@
 ---
 import Encabezados from "@components/Encabezados.astro";
+import Prefooter from "@components/Prefooter.astro";
 import Layout from "@layouts/Layout.astro";
 import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render-template.js";
 ---
@@ -30,8 +31,7 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
 
     <section class="grid pantalla-izq">
       <div id="seek">
-        <div class="izq">
-        </div>
+        <div class="izq"></div>
         <div class="der">
           <h2>When to seek support</h2>
           <p>
@@ -60,22 +60,22 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
       <div class="grid pantalla-der">
         <div id="whatbring">
           <div class="izq">
-           <div>
-            <h2>What therapy can bring</h2>
-            <ul>
-              <li>
-                Eases physical pain and tension, bringing the body back into
-                balance
-              </li>
-              <li>Clarity in the midst of overwhelm</li>
-              <li>Integration of shocks and transitions</li>
-              <li>Greater resilience and self-expression</li>
-              <li>Tools and anchors to manage strong feelings</li>
-              <li>Improved mood, reduced anxiety, and stress</li>
-              <li>Trust in your body and inner resources</li>
-              <li>More choice and freedom in how you respond to life</li>
-            </ul>
-           </div>
+            <div>
+              <h2>What therapy can bring</h2>
+              <ul>
+                <li>
+                  Eases physical pain and tension, bringing the body back into
+                  balance
+                </li>
+                <li>Clarity in the midst of overwhelm</li>
+                <li>Integration of shocks and transitions</li>
+                <li>Greater resilience and self-expression</li>
+                <li>Tools and anchors to manage strong feelings</li>
+                <li>Improved mood, reduced anxiety, and stress</li>
+                <li>Trust in your body and inner resources</li>
+                <li>More choice and freedom in how you respond to life</li>
+              </ul>
+            </div>
           </div>
           <div class="der">
             <img src="/what-can-bring.webp" alt="what can bring the therapy" />
@@ -84,38 +84,100 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
       </div>
     </section>
     <section class="grid contenido">
-<div id="process">
-  <div class="ventana">
-    <div class="conte">
-      <h2>The Therapy Process</h2>
-      <p>My practice is grounded in my academic training, holding UK Master's degrees in Osteopathy and Psychotherapy.</p>
-      <p>I work with:</p>
-      <ul>
-        <li>Children</li>
-        <li>Adults</li>
-        <li>Elderly individuals</li>
-      </ul>
-    </div>
-  </div>
-  <div class="ventana">
-    <img src="/the-process.webp" alt="the process of the therapy">
-  </div>
-  <div class="ventana">
-    <div class="conte">
-     
-      <p>The therapy may include:</p>
-      <ul>
-        <li>Therapeutic Touch</li>
-        <li>Verbal and non-verbal dialogue</li>
-        <li>Movement, music, dance, or art</li>
-        <li>Stillness and silence</li>
-        <li>A spiritual dimension, if it feels right</li>
-      </ul>
-      <p>The process is never about “fixing” but  about shifting what is present, creating  space for expression, connection, and  transformation.</p>
-    </div>
-  </div>
-</div>
+      <div id="process">
+        <div class="ventana">
+          <div class="conte">
+            <h2>The Therapy Process</h2>
+            <p>
+              My practice is grounded in my academic training, holding UK
+              Master's degrees in Osteopathy and Psychotherapy.
+            </p>
+            <p>I work with:</p>
+            <ul>
+              <li>Children</li>
+              <li>Adults</li>
+              <li>Elderly individuals</li>
+            </ul>
+          </div>
+        </div>
+        <div class="ventana">
+          <img src="/the-process.webp" alt="the process of the therapy" />
+        </div>
+        <div class="ventana">
+          <div class="conte">
+            <p>The therapy may include:</p>
+            <ul>
+              <li>Therapeutic Touch</li>
+              <li>Verbal and non-verbal dialogue</li>
+              <li>Movement, music, dance, or art</li>
+              <li>Stillness and silence</li>
+              <li>A spiritual dimension, if it feels right</li>
+            </ul>
+            <p>
+              The process is never about “fixing” but about shifting what is
+              present, creating space for expression, connection, and
+              transformation.
+            </p>
+          </div>
+        </div>
+      </div>
     </section>
+    <section class="grid contenido">
+      <div id="cost">
+        <div class="izq">
+          <div class="conte">
+            <h2>Duration, Costs& Frequencies</h2>
+            <ul>
+              <li>First session : 180 CHF (1h30)</li>
+              <li>Follow-up Session : 120 CHF (1h)</li>
+              <li>Children up to 18yrs of age : 100 CHF</li>
+              <li>Individual sessions are held face-to-face OR Online</li>
+              <li>
+                It is recommended to have 5 sessions for the process to settle
+                into the body.
+              </li>
+              <li>Payment method : Cash/ Bank Transfer/ Twint</li>
+              <li>
+                I practice in the Valais, with sessions available in
+                Crans-Montana and Sion
+              </li>
+            </ul>
+            <p class="aviso">
+              <b>Languages:</b> French, English, Spanish and Dutch
+            </p>
+          </div>
+        </div>
+        <div class="der">
+          <div id="logos">
+            <ul>
+              <li>
+                <a href="https://asca.ch/" target="_blank"
+                  ><img src="/asca-logo.webp" alt="ASCA" /></a
+                >
+              </li>
+              <li>
+                <a href="https://admp.org.uk/" target="_blank"
+                  ><img src="/admpuk-logo.webp" alt="admnpuk" /></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <Prefooter
+      encabezado="I help you connect with your emotions and release energy blockages"
+      btntxt="contact me"
+      href="/contact"
+    />
+
+    <div class="disclaimer">
+      <b>DISCLAIMER:</b> I do not treat osteopathically, nor hold psychotherapy sessions.
+      I draw upon my qualifications, trainings and experience of life to understand
+      and treat my patients. This therapy does not replace any conventional medical
+      treatment and can be used in parallel with medical interventions.
+    </div>
   </main>
 </Layout>
 
@@ -165,73 +227,135 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
     .der {
       flex: 1;
     }
-    .izq > *{
+    .izq > * {
       max-width: 60%;
-     justify-self: center;
+      justify-self: center;
     }
   }
-  @include cel{
-   
-    #seek, #whatbring{
+  @include cel {
+    #seek,
+    #whatbring {
       flex-wrap: wrap;
       gap: 0;
-      .izq, .der{
+      .izq,
+      .der {
         flex: 1 0 100%;
       }
-      .izq{
+      .izq {
         order: 2;
       }
-      .der{
+      .der {
         order: 1;
       }
-      
     }
-    #seek{
+    #seek {
       background: none;
       background-color: $ligero;
       height: auto;
     }
-    #whatbring .izq{
+    #whatbring .izq {
       padding: $margen 0;
       max-width: 100%;
     }
-    #whatbring .izq > *{
+    #whatbring .izq > * {
       max-width: 70%;
     }
-    #seek .izq{
+    #seek .izq {
       display: none;
     }
-    #seek .der{
+    #seek .der {
       height: auto;
-      order: 1!important;
+      order: 1 !important;
       padding: $margen 0;
     }
-    #seek  .der > * {
+    #seek .der > * {
       max-width: 70%;
       justify-self: center;
     }
   }
 
-  #process{
+  #process {
     display: flex;
     gap: $margen-cel;
     margin: $margen 0;
-    .ventana{
+    p:first-of-type {
+      margin-top: 0;
+      font-size: clamp(1.2rem, 2rem, 1.2rem);
+    }
+    p{
+      margin-top: 2rem;
+    }
+    .ventana {
       flex: 1;
       display: flex;
       justify-content: center;
-      align-items: center; 
-      .conte{
-          max-width: 70%;
-        }
+      align-items: center;
+      .conte {
+        max-width: 70%;
+      }
     }
-    @include cel{
+    @include cel {
       flex-wrap: wrap;
       gap: 0;
-      .ventana{
+      .ventana {
         flex: 1 0 100%;
         padding: $margen-cel 0;
-       
+      }
+    }
+  }
+  #cost {
+    display: flex;
+    background: $muyligero;
+    padding: $margen 0;
+    margin: $margen 0;
+    .izq,
+    .der {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      // place-content: center;
+    }
+    .izq .conte {
+      width: 60%;
+    }
+    #logos {
+      width: 100%;
+      height: 100%;
+      margin-right: $margen;
+      background: white;
+    }
+    #logos ul {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      li {
+        list-style: none;
+      }
+    }
+    @include cel {
+      flex-wrap: wrap;
+      .izq,
+      .der {
+        flex: 1 0 100%;
+      }
+      .izq .conte {
+        width: 70%;
+      }
+      .der {
+        margin: $margen 0 0;
+      }
+      #logos {
+        margin:0;
+        padding: 1rem;
+        width: 70%;
+        ul{
+          gap: 2rem;
+          padding-left: 0;
+
+        }
       }
     }
   }
