@@ -1,19 +1,98 @@
 ---
-import Encabezados from '@components/Encabezados.astro';
-import Prefooter from '@components/Prefooter.astro';
-import Layout from '@layouts/Layout.astro';
+import Encabezados from "@components/Encabezados.astro";
+import Prefooter from "@components/Prefooter.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout title="Fanny Vandewiele / Sacred Place" description="Women's Circle, Where we can practice and honor the divine feminine in us">
+<Layout
+  title="Fanny Vandewiele / Sacred Place"
+  description="Women's Circle, Where we can practice and honor the divine feminine in us"
+>
+  <main>
+    <div class="grid contenido fondo-womens">
+      <Encabezados
+        txtayuda="Women's Circle"
+        encabezado="Where we can practice and honor the divine feminine in us"
+      />
+    </div>
+    <div class="grid contenido">
+      <div id="hold">
+        <img
+          src="/womens-circle-to-hold.webp"
+          alt="women's circle, sacred space"
+        />
+        <div class="der">
+          <div class="conte">
+            <p>
+              <b>.. To hold a Sacred Space</b> to tap into the Circle that has always
+              been and will always be.
+            </p>
 
-    <main>
-        <div class="grid contenido fondo-womens">
+            <p>
+              <b>.. To dwell into the strength</b> of The Great Mother and to honour
+              every single one of you Women, your creative energy, your unique journeys
+              and womanhood.
+            </p>
 
-            <Encabezados txtayuda="Women's Circle" encabezado='Where we can practice and honor the divine feminine in us' />
-           
+            <p>
+              .. All you need is to come with all of who you are (with whatever
+              the emotion, the pain, the past, the beliefs, the practice we have
+              or not).
+            </p>
+          </div>
         </div>
+      </div>
+      <div id="whatis">
+        <div class="izq">
+          <div class="conte">
+            <h2>What is a Women’s Temple</h2>
+            <p>
+              Since the beginning of time, there have been women creating temple
+              spaces dedicated to our deepest knowing.
+            </p>
+            <p>
+              .. The Temple is for all of us to practice and bring our unique
+              medicine to the Circle ⭕️ which will organically create an
+              energetic field to hold our togetherness.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <section id="fixed">
+      <h2>A space to be, to feel, to shift</h2>
+    </section>
+    <section class="grid contenido">
+        <div id="icons">
+            <div class="card">
+                <img src="/womens-circle-icon-circle.webp" alt="women's circle">
+                <p><b>Circles</b> where it's safe to let go and feel deeply, where you can move however you like, speak your truth, and reconnect with your inner wildness and deep instincts.</p>
+            </div>
+            <div class="card">
+                <img src="/womens-circle-icon-sisterhood.webp" alt="women's sisterhood">
+                <p><b>Sisterhood </b>..groups where your voice and movement are honored, where we chant, dance, and share simple, mindful practices that bring calm, joy, and connection.</p>
+            </div>
+            <div class="card">
+                <img src="/womens-circle-icon-spaces.webp" alt="women's spaces">
+                <p><b>Spaces</b>around a candle, a fire, or in nature; in living rooms, community centers, yoga studios, or forest clearings; places where you can laugh, cry, heal, and celebrate, connecting with something bigger than yourself.</p>
+            </div>
+            <div class="card">
+                <img src="/womens-circle-icon-temple.webp" alt="women's temple">
+                <p><b>…A women's Temple</b> is not a therapy session or a support group, but a dedicated space to be present, share, and connect with one another safely.</p>
+            </div>
+            <div class="card">
+                <img src="/womens-circle-icon-awakening.webp" alt="women's awakening">
+                <p>We follow simple guidelines, shared in our <b>“Awakening Women Global Sisterhood Manifesto”</b> which outline how we participate in these gatherings and how we carry their spirit into everyday life. You can learn more about these principles here. </p>
+                <a href="https://awakeningwomen.com/the-sisterhood-manifesto/" target="_blank">awakeningwomen.com</a>
+            </div>
+        </div>
+    </section>
 
-            <Prefooter span="For practical information:" encabezado="Contact me & you will be added to the Private Women’s Circle Whatsapp Group" btntxt="contact me" href="/contact" />
-            
-    </main>
+    <Prefooter
+      span="For practical information:"
+      encabezado="Contact me & you will be added to the Private Women’s Circle Whatsapp Group"
+      btntxt="contact me"
+      href="/contact"
+    />
+  </main>
 </Layout>
