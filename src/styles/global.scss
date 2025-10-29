@@ -163,7 +163,10 @@ b {
 .fondo-womens{
   background: url(/womens-circle-bg.webp) no-repeat;
   background-size: contain;
-  background-position: center;
+  background-position: center 6rem ;
+  @include cel {
+    background-position: center 130% ;
+  }
 }
 .centro{
   display: flex;
