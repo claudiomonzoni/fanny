@@ -11,10 +11,10 @@ interface Props {
 const { span, encabezado, parrafo, btntxt, href } = Astro.props;
 ---
 
-<div class="prefooter">
+<div class="prefooter ">
   {span && <span>{span}</span>}
   <h2>{encabezado}</h2>
-  {parrafo && <p>{parrafo}</p>}
+  {parrafo && <div class="parrafo" set:html={parrafo}></div>}
   {href && btntxt && <Btn href={href} text={btntxt} className="oscuro" />}
 </div>
 
@@ -26,6 +26,11 @@ const { span, encabezado, parrafo, btntxt, href } = Astro.props;
     color: $oscuro;
     padding: $margen-top 0;
     border-radius: 1rem;
+    margin: 0 auto;
+    .parrafo{
+      max-width: 80%;
+      margin: 0 auto 2rem;
+    }
   }
   span {
     font-size: clamp(1rem, 1.3vw, 2rem);

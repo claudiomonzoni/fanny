@@ -1,15 +1,139 @@
 ---
-import Encabezados from '@components/Encabezados.astro';
-import Layout from '@layouts/Layout.astro';
+import Encabezados from "@components/Encabezados.astro";
+import Prefooter from "@components/Prefooter.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout title="Fanny Vandewiele / Sacred Place" description="About me, Accompanying People Through Life's Processes">
+<Layout
+  title="Fanny Vandewiele / Sacred Place"
+  description="About me, Accompanying People Through Life's Processes"
+>
+  <main>
+    <div class="grid contenido">
+      <Encabezados
+        txtayuda="About Me"
+        encabezado="Accompanying People Through Life's Processes"
+        marginEspecial
+      />
+      <p class="centrarYlimitar">
+        I believe in acknowledging the whole person; the parts we embrace and
+        the parts we often wish to hide because all of it belongs.
+      </p>
+    </div>
 
-    <main>
-        <div class="grid contenido">
-
-            <Encabezados txtayuda="About Me" encabezado="Accompanying People Through Life's Processes" />
-           
+    <section id="bandeja" class="grid pantalla-der">
+      <div id="whatis">
+        <div class="izq">
+          <div class="conte">
+            <h2>A Journey Shaped by Many Paths</h2>
+            <p>
+              My journey has taken me across the globe and through many roles:
+              Dance Movement Psychotherapist, Osteopath, Women’s Temple
+              Facilitator, Palliative Carer, Yogini, and Mother of a child with
+              special needs.
+            </p>
+            <p>
+              Each of these experiences has shaped the way I meet others.. with
+              presence, compassion, and reverence for the resilience and beauty
+              of being human.
+            </p>
+          </div>
         </div>
-    </main>
+        <div class="der">
+          <img src="/about-me-journey.webp" alt="about me" />
+        </div>
+      </div>
+    </section>
+
+    <section id="bandeja" class="grid pantalla-izq">
+      <div id="hold">
+        <img src="/about-me-moving.webp" alt="women's circle, sacred space" />
+        <div class="der">
+          <div class="conte">
+            <h2>A Journey Through Movement and Meaning</h2>
+            <p>
+              I love exploring movement, dance, music, feelings, and the
+              challenges that arise within myself and others, as pathways into a
+              more embodied experience of the present moment.
+            </p>
+
+            <p>
+              The body, spirit, and emotions have always fascinated me. How they
+              weave together with music, healing, life, and even death to reveal
+              our deepest truths.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="grid contenido">
+      <Prefooter
+        encabezado="I help you connect with your emotions and release energy blockages"
+        btntxt="contact me"
+        parrafo="<p>My therapeutic approach is greatly rooted in a person-centred and humanistic perspective, and is informed by the pioneering work of Marion Chace and Alma Hawkins. It has been further enriched by Gerald Lamb's osteopathic teaching, which shapes my understanding of the body's wisdom and capacity to heal.</p><p>Ultimately, I see therapy as a shared journey. One where we explore the here and now, and discover new ways of moving forward.</p>"
+        href="/contact"
+      />
+    </div>
+  </main>
 </Layout>
+
+<style lang="scss">
+  @use "/src/styles/variables.scss" as *;
+
+  #hold {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background: $muyligero;
+    img {
+      width: 100%;
+    }
+    .der {
+      display: flex;
+      place-content: center;
+      .conte {
+        width: 60%;
+      }
+    }
+    @include cel {
+      grid-template-columns: 1fr;
+      .der {
+        order: -1;
+        padding: $margen 0;
+        .conte {
+          width: 70%;
+        }
+      }
+    }
+  }
+  #whatis {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin-top: $margen-top;
+    .izq {
+      display: flex;
+      place-content: center;
+      .conte {
+        width: 60%;
+      }
+    }
+    @include cel {
+      grid-template-columns: 1fr;
+      .izq {
+        order: -1;
+        padding: $margen 0;
+        .conte {
+          width: 70%;
+        }
+      }
+    }
+    @include cel {
+      margin-top: $margen;
+      .izq{
+        order: 1;
+      }
+    }
+  }
+</style>
