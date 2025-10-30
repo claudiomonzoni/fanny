@@ -1,15 +1,180 @@
 ---
-import Encabezados from '@components/Encabezados.astro';
-import Layout from '@layouts/Layout.astro';
+import Encabezados from "@components/Encabezados.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout title="Fanny Vandewiele / Sacred Place" description="Contact me, Together, we shape-shift what life brings">
+<Layout
+  title="Fanny Vandewiele / Sacred Place"
+  description="Contact me, Together, we shape-shift what life brings"
+>
+  <main>
+    <div class="grid contenido">
+      <Encabezados
+        txtayuda="Contact me"
+        encabezado="Together, we shape-shift what life brings"
+        marginEspecial
+      />
 
-    <main>
-        <div class="grid contenido">
-
-            <Encabezados txtayuda="Contact me" encabezado="Together, we shape-shift what life brings" />
-           
+      <p class="centrarYlimitar">
+        <b>For booking</b>, guidance, and questions, contact me
+      </p>
     </div>
-    </main>
+    <section id="bandeja" class="grid pantalla-izq">
+      <div id="hold">
+        <img src="/contact-me.webp" alt="contact me" />
+        <div class="der">
+          <form
+            class="conte"
+            action="/process-contact.php"
+            method="POST"
+            id="contactForm"
+          >
+            <div class="form-group">
+              <label for="fullname">Full Name</label>
+              <input type="text" id="fullname" name="fullname" required />
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" name="phone" />
+            </div>
+
+            <div class="form-group">
+              <label for="service">Service</label>
+              <select id="service" name="service" required>
+                <option value="" disabled selected>Select a service</option>
+                <option value="therapy">One-to-One Therapy</option>
+                <option value="circle">Women's Circle</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+            </div>
+
+            <div id="form-message" class="form-message"></div>
+            <button type="submit" class="btn-submit">Contact me</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <div id="correofon">
+      <img src="/calendar-ico.svg" alt="contact me" />
+      <a href="tel:+41797401235">
+        <img src="/correofon.png" alt="email phone" />
+      </a>
+    </div>
+  </main>
 </Layout>
+
+<style lang="scss">
+  @use "/src/styles/variables.scss" as *;
+
+  #hold {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    background: $primario;
+    color: white;
+    margin: $margen-top 0;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .der {
+      display: flex;
+      place-content: center;
+      .conte {
+        width: 60%;
+      }
+    }
+    form {
+      padding: $margen 0;
+    }
+    .form-group {
+      margin-bottom: 1.5rem;
+
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: none;
+        background-color: $ligero;
+        color: $oscuro;
+        border-radius: 4px;
+        font-family: inherit;
+
+        &::placeholder {
+          color: rgba(255, 255, 255, 0.7);
+        }
+
+        &:focus {
+          outline: none;
+          border-color: white;
+        }
+      }
+
+      textarea {
+        resize: vertical;
+      }
+    }
+
+    .btn-submit {
+      background-color: white;
+      color: $primario;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-weight: 600;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-transform: capitalize;
+
+      &:hover {
+        background-color: darken(white, 10%);
+      }
+    }
+    @include cel {
+      grid-template-columns: 1fr;
+      margin: $margen 0;
+      .der {
+        order: -1;
+        padding: $margen 0;
+        .conte {
+          width: 70%;
+        }
+      }
+    }
+  }
+  #correofon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    padding: 0 0 $margen 0;
+    flex-wrap: wrap;
+
+    img:last-child {
+      padding: 0 $margen-cel;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      max-width: 400px;
+    }
+  }
+</style>
