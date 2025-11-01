@@ -10,17 +10,12 @@ export default defineConfig({
       fr: "en",
     },
     routing: {
-      fallbackType: "rewrite"
-    }
+      fallbackType: "rewrite",
+    },
   },
-  site: "https://ess100.netlify.app/",
-//   trailingSlash: "always",
-//   build: {
-//     format: "directory",
-//   },
-  // vite: {
-  //     ssr: {
-  //         noExternal: ['@astrojs/image', 'astro-icon'],
-  //     },
-  // },
+  site: "https://fanny-vandewiele.com",
+  base: "/",
+  build: {
+    format: "directory",
+  },
 });

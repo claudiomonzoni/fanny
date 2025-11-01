@@ -1,17 +1,250 @@
 ---
-import Encabezados from '@components/Encabezados.astro';
-import Testimoniales from '@components/Testimoniales.astro';
-import Layout from '@layouts/Layout.astro';
+import Btn from "@components/Btn.astro";
+import Encabezados from "@components/Encabezados.astro";
+import Testimoniales from "@components/Testimoniales.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout title="Fanny Vandewiele / Sacred Place" description="Welcome to Sacred Place where the body and emotions can express, move and shift">
+<Layout
+  title="Fanny Vandewiele / Sacred Place"
+  description="Welcome to Sacred Place where the body and emotions can express, move and shift"
+>
+  <main>
+    <div class="grid contenido">
+      <Encabezados
+        txtayuda="Sacred Space"
+        encabezado="Where the Body and the Emotions can express, move, and shift"
+      />
+    </div>
 
-    <main>
-        <div class="grid contenido">
-
-            <Encabezados txtayuda='Sacred Space' encabezado='Where the Body and the Emotions can express, move, and shift' />
-           
+    <section class="grid pantalla-izq">
+      <div id="welcome">
+        <div class="laimg">
+          <img src="/welcome.webp" alt="welcome" />
         </div>
-    </main>
-    <Testimoniales />
+        <div class="centro">
+          <div class="conte">
+            <p>
+              <b>I welcome you</b> with all that you are, all that you have been,
+              and all that you are becoming.
+            </p>
+            <p>
+              A journey we take together, holding peace within the messy, the
+              painful, and the ever-changing movement of life.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div id="longing">
+        <h2>You may be longing for…</h2>
+        <p>
+          A space where you are heard and understood, where your <b>body</b> can
+          soften, your <b>nervous system</b> can slow down, and your <b
+            >inner self</b
+          > can heal.
+        </p>
+      </div>
+    </section>
+
+    <section id="products" class="grid contenido">
+      <div id="productos">
+        <div class="laimg">
+          <img src="/one-one-therapy-home.webp" alt="one-one teraphy home" />
+        </div>
+        <div class="centro">
+          <div class="conte">
+            <h2>One-to-One Therapy</h2>
+            <p>
+              Sacred Space Therapy is a place to pause, breathe, and come back
+              to yourself.
+            </p>
+            <p>
+              Here, the body and emotions are invited to speak, to move, and to
+              be witnessed, just as they are.
+            </p>
+            <p>
+                Together we shape-shift what feels heavy or stuck, and open space
+                for more ease, clarity, and presence in the here & now.
+            </p>
+            <p>
+                ✨I practice in the Valais, with sessions available in
+                Crans-Montana and Sion.
+            </p>
+            <Btn href="/therapy" text="About Therapy" className="oscuro"  />
+          </div>
+        </div>
+      </div>
+      <div id="productos">
+        <div class="centro">
+          <div class="conte">
+            <h2>Women’s Temple or Circle</h2>
+            <p>A safe and sacred space held by women, for women.</p>
+            <p>
+              ..Here, we gather to move, dance, chant, touch, laugh, cry,
+              share, and listen. </br>
+              ..Through gentle, respectful, and conscious
+              practices, we reconnect with our feminine strength and step into
+              deep empowerment. </br>
+              ..Together, we heal, grow, and embody the
+              wisdom that lives within us.
+            </p>
+            <p>✨ I hold circles in Crans-Montana, Valais</p>
+            <Btn href="/womens-circle" text="About Women's Circles" className="oscuro"  />
+          </div>
+        </div>
+        <div class="laimg">
+          <img src="/womens-circle-home.webp" alt="Wommens temple circle home" />
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section id="fanny" class="grid pantalla-der">
+    <div id="conteFanny">
+        <div id="margen"></div>
+  <div class="centro">
+    <div class="conte">
+        <h2>Fanny Vandewiele</h2>
+        <p>
+        I am fascinated by the ways body, spirit, and emotions intertwine with
+        life’s transitions, and I explore relationships, movement, dance, music,
+        and feeling as gateways to presence and healing.
+      </p>
+      <Btn href="/about" text="About Fanny" className="claro" />
+    </div>
+  </div>
+</div>
+</section>
+
+<Testimoniales />
+
 </Layout>
+<style lang="scss">
+  @use "src/styles/variables.scss" as *;
+  #welcome,
+  #productos {
+    display: flex;
+  }
+  .laimg {
+    flex: 3;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .centro {
+    flex: 2;
+    background: $ligero;
+  }
+  @include cel {
+    #welcome {
+      flex-wrap: wrap;
+    }
+    .laimg {
+      flex: 1 0 100%;
+    }
+    .centro {
+      height: 40dvh;
+      flex: 1 0 100%;
+    }
+  }
+
+  #longing {
+    padding: $margen-top 0;
+    h2,
+    p {
+      text-align: center;
+    }
+    p {
+      margin: 0 auto;
+      max-width: 50%;
+    }
+  }
+  @include cel {
+    #longing {
+      padding: $margen-top $margen;
+      p {
+        max-width: 90%;
+      }
+    }
+  }
+
+  #productos {
+    .laimg {
+      flex: 1;
+    }
+    .centro {
+      flex: 1;
+      background: none;
+    }
+    @include cel{
+      flex-wrap: wrap;
+      .laimg {
+        flex: 1 0 100%;
+        order: 1;
+    }
+    .centro {
+          order: 2;
+        flex: 1 0 100%;
+        padding: $margen $margen-cel;
+        height: auto!important;
+      }
+    }
+  }
+
+  #conteFanny {
+    margin: $margen-top 0;
+    background: url("/fanny-vandewiele-home.webp") no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    height: 48vh;
+    #margen{
+      flex: 3;
+    }
+    h2{
+        color: $muyligero;
+    }
+    .centro {
+        flex: 3;
+        background: none;
+        color: $muyligero;
+        .conte{
+            width: 50%;
+        }
+        p{
+            color: $muyligero;
+        }
+     
+    }
+    @include tableta{
+      height: 20vh;
+    }
+    @include cel{
+      margin-top: 0;
+        background: url("/fanny-vandewiele-home-cel.webp") no-repeat;
+        background-position: center bottom;
+        background-size: 100%;
+        height: 80vh;
+      flex-wrap: wrap;
+      #margen{
+        flex: 1 0 100%;
+        order: 2;
+        height: 40vh;
+      }
+     .centro {
+        order: 1;
+        flex: 1 0 100%;
+        justify-content: center;
+        margin-top: 2rem;
+        // padding: $margen-cel;
+        .conte{
+          text-align: center;
+          width: 70%;
+        }
+      }
+    }
+  }
+</style>

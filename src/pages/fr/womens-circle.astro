@@ -1,15 +1,319 @@
 ---
-import Encabezados from '@components/Encabezados.astro';
-import Layout from '@layouts/Layout.astro';
+import Btn from "@components/Btn.astro";
+import Encabezados from "@components/Encabezados.astro";
+import Prefooter from "@components/Prefooter.astro";
+import Layout from "@layouts/Layout.astro";
 ---
 
-<Layout title="Fanny Vandewiele / Sacred Place" description="Women's Circle, Where we can practice and honor the divine feminine in us">
+<Layout
+  title="Fanny Vandewiele / Sacred Place"
+  description="Women's Circle, Where we can practice and honor the divine feminine in us"
+>
+  <main>
+    <div class="grid contenido fondo-womens">
+      <Encabezados
+        txtayuda="Women's Circle"
+        encabezado="Where we can practice and honor the divine feminine in us"
+      />
+    </div>
+    <div class="grid contenido">
+      <div id="hold">
+        <img
+          src="/womens-circle-to-hold.webp"
+          alt="women's circle, sacred space"
+        />
+        <div class="der">
+          <div class="conte">
+            <p>
+              <b>.. To hold a Sacred Space</b> to tap into the Circle that has always
+              been and will always be.
+            </p>
 
-    <main>
-        <div class="grid contenido">
+            <p>
+              <b>.. To dwell into the strength</b> of The Great Mother and to honour
+              every single one of you Women, your creative energy, your unique journeys
+              and womanhood.
+            </p>
 
-            <Encabezados txtayuda="Women's Circle" encabezado='Where we can practice and honor the divine feminine in us' />
-           
+            <p>
+              .. All you need is to come with all of who you are (with whatever
+              the emotion, the pain, the past, the beliefs, the practice we have
+              or not).
+            </p>
+          </div>
         </div>
-    </main>
+      </div>
+      <div id="whatis">
+        <div class="izq">
+          <div class="conte">
+            <h2>What is a Women’s Temple</h2>
+            <p>
+              Since the beginning of time, there have been women creating temple
+              spaces dedicated to our deepest knowing.
+            </p>
+            <p>
+              .. The Temple is for all of us to practice and bring our unique
+              medicine to the Circle ⭕️ which will organically create an
+              energetic field to hold our togetherness.
+            </p>
+          </div>
+        </div>
+        <div class="der">
+          <img
+            src="/womens-circle-what-is.webp"
+            alt="What is a Women’s Temple"
+          />
+        </div>
+      </div>
+    </div>
+    <section id="fixed">
+      <h2>A space to be, to feel, to shift</h2>
+    </section>
+    <section class="grid contenido">
+      <div id="icons">
+        <div class="card">
+          <img src="/womens-circle-icon-circle.webp" alt="women's circle" />
+          <p>
+            <b>Circles</b> where it's safe to let go and feel deeply, where you can
+            move however you like, speak your truth, and reconnect with your inner
+            wildness and deep instincts.
+          </p>
+        </div>
+        <div class="card">
+          <img
+            src="/womens-circle-icon-sisterhood.webp"
+            alt="women's sisterhood"
+          />
+          <p>
+            <b>Sisterhood </b>..groups where your voice and movement are
+            honored, where we chant, dance, and share simple, mindful practices
+            that bring calm, joy, and connection.
+          </p>
+        </div>
+        <div class="card">
+          <img src="/womens-circle-icon-spaces.webp" alt="women's spaces" />
+          <p>
+            <b>Spaces</b> around a candle, a fire, or in nature; in living rooms,
+            community centers, yoga studios, or forest clearings; places where you
+            can laugh, cry, heal, and celebrate, connecting with something bigger
+            than yourself.
+          </p>
+        </div>
+        <div class="card">
+          <img src="/womens-circle-icon-temple.webp" alt="women's temple" />
+          <p>
+            <b>…A women's Temple</b> is not a therapy session or a support group,
+            but a dedicated space to be present, share, and connect with one another
+            safely.
+          </p>
+        </div>
+        <div class="card">
+          <img
+            src="/womens-circle-icon-awakening.webp"
+            alt="women's awakening"
+          />
+          <p>
+            We follow simple guidelines, shared in our <b>“Awakening Women Global Sisterhood Manifesto”</b> which outline how we participate in these gatherings and how we carry
+            their spirit into everyday life. You can learn more about these principles
+            here.
+            <br />
+            <Btn href='https://awakeningwomen.com/the-sisterhood-manifesto/' text='awakening women' className="oscuro" target />
+          </p>
+        </div>
+      </div>
+    </section>
+    <section>
+      <div id="details">
+        <div class="conte">
+          <h2>For Whom:</h2>
+          <p>Women only Age: 18+</p>
+        </div>
+        <div class="conte">
+          <h2>Language:</h2>
+          <p>English</p>
+        </div>
+        <div class="conte">
+          <h2>What to Bring:</h2>
+          <ul>
+            <li>
+              Comfortable clothes in which you can move, dance, sit on the
+              ground, and which make you feel good inside and bring out your
+              feminine side.
+            </li>
+            <li>A big shawl</li>
+            <li>Warm socks</li>
+            <li>A water bottle</li>
+          </ul>
+        </div>
+        <div class="conte">
+          <h2>Fee:</h2>
+          <p>
+            For an open Temple : 80 Chf per woman (by Twint, Cash, or Bank
+            Transfer) beforehand.
+          </p>
+          <p>
+            For a closed Temple <span>(includes 4 circles)</span> : 300 Chf per women
+            (by Twint, Cash, or Bank Transfer) beforehand.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <Prefooter
+      span="For practical information:"
+      encabezado="Contact me & you will be added to the Private Women’s Circle Whatsapp Group"
+      btntxt="contact me"
+      href="/contact"
+    />
+  </main>
 </Layout>
+
+<style lang="scss">
+  @use "/src/styles/variables.scss" as *;
+
+  #hold {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    align-items: center;
+    background: $muyligero;
+    img {
+      width: 100%;
+    }
+    .der {
+      display: flex;
+      place-content: center;
+      .conte {
+        width: 60%;
+      }
+    }
+    @include cel {
+      grid-template-columns: 1fr;
+      .der {
+        order: -1;
+        padding: $margen 0;
+        .conte {
+          width: 70%;
+        }
+      }
+    }
+  }
+  #whatis {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    .izq {
+      display: flex;
+      place-content: center;
+      .conte {
+        width: 60%;
+      }
+    }
+    @include cel {
+      grid-template-columns: 1fr;
+      .izq {
+        order: -1;
+        padding: $margen 0;
+        .conte {
+          width: 70%;
+        }
+      }
+    }
+  }
+  #fixed {
+    background: url(/womens-circle-montains.webp) no-repeat center center;
+    background-size: 100% 100%;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: $margen 0;
+    h2 {
+      color: white;
+      font-size: clamp(2rem, 7vw, 3rem);
+      text-align: center;
+      width: 60%;
+      font-family: "Montserrat", sans-serif;
+      font-weight: lighter;
+    }
+    @include cel {
+      height: 700px;
+      h2 {
+        width: 80%;
+      }
+    }
+  }
+  #icons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    gap: 0.4rem;
+  }
+  .card {
+    flex: 1 0 32%;
+    display: grid;
+    grid-template-columns: 2fr 4fr;
+    gap: 1.3rem;
+    max-width: 40%;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: $margen-cel 0;
+    img {
+      flex: 1 0 15%;
+      width: 100%;
+      max-width: 140px;
+      padding: 0.5rem;
+      margin: 0 auto;
+      @include tableta-land {
+        max-width: 100px;
+      }
+    }
+    p {
+      text-align: left !important;
+      flex: 1 0 85%;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+    @include cel {
+      grid-template-columns: 1fr;
+      flex: 1 0 100%;
+      max-width: 100%;
+      img {
+        flex: 1 0 10%;
+      }
+      p {
+        flex: 1 0 90%;
+        max-width: 70%;
+        margin: 0 auto;
+        text-align: center !important;
+      }
+    }
+  }
+  #details {
+    background: $primario;
+    margin: $margen 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: space-between;
+    padding: $margen;
+    .conte {
+      flex: 1 0 fit-content;
+      max-width: 23%;
+    }
+    h2,
+    p,
+    li {
+      color: white;
+    }
+    @include cel {
+      flex-direction: column;
+     .conte {
+        max-width: 100%;
+        margin-bottom: 2rem;
+      }
+    }
+  }
+</style>

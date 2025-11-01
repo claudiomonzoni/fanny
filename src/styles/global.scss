@@ -12,7 +12,7 @@ html {
   color: $oscuro;
 
   @include hd {
-    font-size: clamp(10px, 0.9vw, 20px);
+    font-size: clamp(10px, 1vw, 20px);
   }
   @include cel {
     font-size: clamp(16px, 1.8vw, 18px);
