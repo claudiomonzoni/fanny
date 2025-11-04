@@ -192,6 +192,18 @@ import Layout from "@layouts/Layout.astro";
         height: auto!important;
       }
     }
+
+    @include tableta {
+      .centro {
+        padding: $margen 0;
+      }
+    }
+    @include tableta-land {
+      .centro {
+        padding: $margen 0;
+      }
+    }
+    
   }
 
   #conteFanny {

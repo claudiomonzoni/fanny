@@ -126,7 +126,7 @@ import Layout from "@layouts/Layout.astro";
       <div id="details">
         <div class="conte">
           <h2>For Whom:</h2>
-          <p>Women only Age: 18+</p>
+          <p>Women only Age: <br> 18+</p>
         </div>
         <div class="conte">
           <h2>Language:</h2>
@@ -196,6 +196,16 @@ import Layout from "@layouts/Layout.astro";
         }
       }
     }
+    @include tableta{
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .der{
+        padding: $margen 0;
+      }
+    }
   }
   #whatis {
     display: grid;
@@ -216,6 +226,20 @@ import Layout from "@layouts/Layout.astro";
         .conte {
           width: 70%;
         }
+      }
+    }
+    @include tableta{
+      .der{
+        width: 100%;
+        height: 100%;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+      .izq{
+        padding: $margen 0;
       }
     }
   }

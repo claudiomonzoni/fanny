@@ -22,7 +22,9 @@ import Layout from "@layouts/Layout.astro";
 
     <section id="bandeja" class="grid pantalla-izq">
       <div id="hold">
-        <img src="/contact-me.webp" alt="contact me" />
+        <div class="izq">
+          <img src="/contact-me.webp" alt="contact me" />
+        </div>
         <div class="der">
           <form class="conte" id="contactForm">
             <div class="form-group">
@@ -76,28 +78,37 @@ import Layout from "@layouts/Layout.astro";
 
       if (form) {
         form.addEventListener("submit", function (event) {
-        event.preventDefault(); // evita el envío normal
+          event.preventDefault(); // evita el envío normal
 
-        const fullname = (document.getElementById("fullname") as HTMLInputElement)!.value.trim();
-const email = (document.getElementById("email") as HTMLInputElement)!.value.trim();
-const phone = (document.getElementById("phone") as HTMLInputElement)!.value.trim();
-const service = (document.getElementById("service") as HTMLSelectElement)!.value;
-const message = (document.getElementById("message") as HTMLTextAreaElement)!.value.trim();
+          const fullname = (document.getElementById(
+            "fullname"
+          ) as HTMLInputElement)!.value.trim();
+          const email = (document.getElementById(
+            "email"
+          ) as HTMLInputElement)!.value.trim();
+          const phone = (document.getElementById(
+            "phone"
+          ) as HTMLInputElement)!.value.trim();
+          const service = (document.getElementById(
+            "service"
+          ) as HTMLSelectElement)!.value;
+          const message = (document.getElementById(
+            "message"
+          ) as HTMLTextAreaElement)!.value.trim();
 
-
-        if (!fullname || !email || !service) {
-          if (formMsg) {
-            formMsg.textContent = "Please complete all required fields.";
+          if (!fullname || !email || !service) {
+            if (formMsg) {
+              formMsg.textContent = "Please complete all required fields.";
+            }
+            if (formMsg) formMsg.style.color = "#ffaaaa";
+            return;
           }
-if (formMsg) formMsg.style.color = "#ffaaaa";
-          return;
-        }
 
-        // Número de WhatsApp (sin + ni espacios)
-        const whatsappNumber = "+41797401235"; // cámbialo si deseas otro
+          // Número de WhatsApp (sin + ni espacios)
+          const whatsappNumber = "+41797401235"; // cámbialo si deseas otro
 
-        // Mensaje formateado
-        const text = `Hello! 👋%0A
+          // Mensaje formateado
+          const text = `Hello! 👋%0A
 I'm *${fullname}*.%0A
 Email: ${email}%0A
 Phone: ${phone || "Not provided"}%0A
@@ -105,19 +116,19 @@ Service: ${service}%0A
 Message:%0A${encodeURIComponent(message)}%0A%0A
 — Sent from the contact form on your website.`;
 
-        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${text}`;
+          const whatsappURL = `https://wa.me/${whatsappNumber}?text=${text}`;
 
-if (formMsg) formMsg.textContent = "Opening WhatsApp...";
-if (formMsg) formMsg.style.color = "#c4ffc4";
+          if (formMsg) formMsg.textContent = "Opening WhatsApp...";
+          if (formMsg) formMsg.style.color = "#c4ffc4";
 
-        setTimeout(() => {
-          window.open(whatsappURL, "_blank");
-(form as HTMLFormElement).reset();
-          if (formMsg) formMsg.textContent = "";
-        }, 500);
-      });
-    }
-  });
+          setTimeout(() => {
+            window.open(whatsappURL, "_blank");
+            (form as HTMLFormElement).reset();
+            if (formMsg) formMsg.textContent = "";
+          }, 500);
+        });
+      }
+    });
   </script>
 
   <style lang="scss">
@@ -130,11 +141,14 @@ if (formMsg) formMsg.style.color = "#c4ffc4";
       background: $primario;
       color: white;
       margin: $margen-top 0;
-
-      img {
+      .izq {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
       }
 
       .der {
@@ -196,13 +210,16 @@ if (formMsg) formMsg.style.color = "#c4ffc4";
         text-transform: capitalize;
 
         &:hover {
-          background-color: darken(white, 10%);
+          background-color: $oscuro;
         }
       }
 
       @include cel {
         grid-template-columns: 1fr;
         margin: $margen 0;
+        .izq{
+          height: 40vh;
+        }
         .der {
           order: -1;
           padding: $margen 0;

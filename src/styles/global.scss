@@ -17,6 +17,12 @@ html {
   @include cel {
     font-size: clamp(16px, 1.8vw, 18px);
   }
+  @include tableta{
+    font-size: 14px
+  }
+  @include tableta-land {
+    font-size: 14px
+  }
   @include hdplus {
     font-size: clamp(14px, 7vw, 22px);
   }

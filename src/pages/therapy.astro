@@ -60,7 +60,7 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
       <div class="grid pantalla-der">
         <div id="whatbring">
           <div class="izq">
-            <div>
+            <div class="conte">
               <h2>What therapy can bring</h2>
               <ul>
                 <li>
@@ -226,10 +226,12 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
     .izq,
     .der {
       flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .izq > * {
+    .izq .conte {
       max-width: 60%;
-      justify-self: center;
     }
   }
   @include cel {
@@ -274,6 +276,26 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
     }
   }
 
+  @include tableta {
+    #seek {
+     background: url(/seek-support.webp) no-repeat center left $ligero;
+     background-size: 50%;
+     background-position: left bottom;
+    }
+    #whatbring .izq {
+     padding: $margen 0;
+    }
+    #whatbring .der {
+     height: 100%;
+     img{
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      object-position: right;
+     }
+    }
+  }
+
   #process {
     display: flex;
     gap: $margen-cel;
@@ -282,7 +304,7 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
       margin-top: 0;
       font-size: clamp(1.2rem, 2rem, 1.2rem);
     }
-    p{
+    p {
       margin-top: 2rem;
     }
     .ventana {
@@ -348,13 +370,12 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
         margin: $margen 0 0;
       }
       #logos {
-        margin:0;
+        margin: 0;
         padding: 1rem;
         width: 70%;
-        ul{
+        ul {
           gap: 2rem;
           padding-left: 0;
-
         }
       }
     }
