@@ -33,26 +33,28 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
       <div id="seek">
         <div class="izq"></div>
         <div class="der">
-          <h2>When to seek support</h2>
-          <p>
-            Sometimes we need ourselves facing the same closed doors, the same
-            patterns, or the same inner conficts.
-          </p>
-          <p>
-            At times, life’s challenges: whether physical pain, emotional
-            overwhelm, or major transitions, can leave us feeling disconnected
-            from our strength and inner light.
-          </p>
+          <div class="conte">
+            <h2>When to seek support</h2>
+            <p>
+              Sometimes we need ourselves facing the same closed doors, the same
+              patterns, or the same inner conficts.
+            </p>
+            <p>
+              At times, life’s challenges: whether physical pain, emotional
+              overwhelm, or major transitions, can leave us feeling disconnected
+              from our strength and inner light.
+            </p>
 
-          <p><b>Therapy can support you through:</b></p>
-          <ul>
-            <li>Physical aches and injuries</li>
-            <li>Grief, divorce, or separation</li>
-            <li>Life changes and relocations</li>
-            <li>Surgical interventions (before and after)</li>
-            <li>Emotional blockages or overwhelm</li>
-            <li>Important decisions and transitions</li>
-          </ul>
+            <p><b>Therapy can support you through:</b></p>
+            <ul>
+              <li>Physical aches and injuries</li>
+              <li>Grief, divorce, or separation</li>
+              <li>Life changes and relocations</li>
+              <li>Surgical interventions (before and after)</li>
+              <li>Emotional blockages or overwhelm</li>
+              <li>Important decisions and transitions</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -195,8 +197,10 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
     .izq,
     .der {
       flex: 1;
+      justify-content: center;
+      align-items: center;
     }
-    .der > * {
+    .conte{
       max-width: 60%;
     }
     p:last-of-type {
@@ -278,21 +282,21 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
 
   @include tableta {
     #seek {
-     background: url(/seek-support.webp) no-repeat center left $ligero;
-     background-size: 50%;
-     background-position: left bottom;
+      background: url(/seek-support.webp) no-repeat center left $ligero;
+      background-size: 50%;
+      background-position: left bottom;
     }
     #whatbring .izq {
-     padding: $margen 0;
+      padding: $margen 0;
     }
     #whatbring .der {
-     height: 100%;
-     img{
       height: 100%;
-      width: 100%;
-      object-fit: cover;
-      object-position: right;
-     }
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: right;
+      }
     }
   }
 

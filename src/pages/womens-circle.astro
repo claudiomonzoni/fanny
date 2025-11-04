@@ -126,7 +126,7 @@ import Layout from "@layouts/Layout.astro";
       <div id="details">
         <div class="conte">
           <h2>For Whom:</h2>
-          <p>Women only Age: <br> 18+</p>
+          <p>Women only<br>Age: 18+</p>
         </div>
         <div class="conte">
           <h2>Language:</h2>
@@ -243,32 +243,56 @@ import Layout from "@layouts/Layout.astro";
       }
     }
   }
-  #fixed {
-    background: url(/womens-circle-montains.webp) no-repeat center center;
-    background-size: 100% 100%;
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    height: 70vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: $margen 0;
-    h2 {
-      color: white;
-      font-size: clamp(2rem, 7vw, 3rem);
-      text-align: center;
-      width: 60%;
-      font-family: "Montserrat", sans-serif;
-      font-weight: lighter;
-    }
-    @include cel {
-      height: 700px;
-      h2 {
-        width: 80%;
-      }
+#fixed {
+  position: relative;
+  height: 70vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: $margen 0;
+  overflow: hidden;
+
+  // Fondo normal (para navegadores que sí soportan fixed)
+  background: url(/womens-circle-montains.webp) no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+
+  // Fallback para iOS
+  @supports (-webkit-touch-callout: none) {
+    background-attachment: scroll;
+
+    // Usa pseudo-elemento para simular el fondo fijo
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: inherit;
+      background-attachment: scroll;
+      background-size: cover;
+      background-position: center;
+      z-index: -1;
+      transform: translateZ(0);
     }
   }
+
+  h2 {
+    color: white;
+    font-size: clamp(2rem, 7vw, 3rem);
+    text-align: center;
+    width: 60%;
+    font-family: "Montserrat", sans-serif;
+    font-weight: lighter;
+    z-index: 1;
+  }
+
+  @include cel {
+    height: 700px;
+    h2 {
+      width: 80%;
+    }
+  }
+}
+
   #icons {
     display: flex;
     flex-wrap: wrap;
