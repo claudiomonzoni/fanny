@@ -199,6 +199,7 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
       flex: 1;
       justify-content: center;
       align-items: center;
+      display: flex;
     }
     .conte{
       max-width: 60%;
@@ -262,9 +263,10 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
     #whatbring .izq {
       padding: $margen 0;
       max-width: 100%;
+      width: 100%;
     }
-    #whatbring .izq > * {
-      max-width: 70%;
+    #whatbring .conte{
+      max-width: 70%!important;
     }
     #seek .izq {
       display: none;
