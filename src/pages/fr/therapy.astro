@@ -7,24 +7,21 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
 
 <Layout
   title="Fanny Vandewiele / Sacred Place"
-  description="One to One Theraphy"
+  description="Thérapie individuelle"
 >
   <main>
     <div class="grid contenido">
       <Encabezados
-        txtayuda="One to One Therapy"
-        encabezado="I meet you where you are, in the here and now"
+        txtayuda="Thérapie individuelle"
+        encabezado="Je vous rencontre là où vous êtes, ici et maintenant."
         marginEspecial
       />
       <div class="centrarYlimitar">
         <h2>
-          Listening to your body, the spoken and unspoken words, and together we
-          find what is needed.
+          J’écoute le corps, ce qui est dit et ce qui ne l’est pas, et nous découvrons ensemble ce dont vous avez besoin.
         </h2>
         <p>
-          Each person is different. Some need movement to access their struggle,
-          some a healing hands-on approach, some need words, and others need a
-          safe physical space in which to be held.
+          Chaque personne est différente: certaines ont besoin de bouger pour exprimer leur vécu, d’autres d’une approche thérapeutique manuelle et bienveillante, accompagnée de mots, ou de moments de silence pour se déposer.
         </p>
       </div>
     </div>
@@ -33,26 +30,25 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
       <div id="seek">
         <div class="izq"></div>
         <div class="der">
-          <h2>When to seek support</h2>
-          <p>
-            Sometimes we need ourselves facing the same closed doors, the same
-            patterns, or the same inner conficts.
-          </p>
-          <p>
-            At times, life’s challenges: whether physical pain, emotional
-            overwhelm, or major transitions, can leave us feeling disconnected
-            from our strength and inner light.
-          </p>
+          <div class="conte">
+            <h2>Quand chercher du soutien</h2>
+            <p>
+              Parfois, nous nous retrouvons face aux mêmes portes closes, aux mêmes schémas ou aux mêmes conflits intérieurs.
+            </p>
+            <p>
+             Les défis de la vie.. douleurs physiques, surcharge émotionnelle, interventions chirurgicales, grandes transitions.. peuvent nous faire perdre le lien avec notre force et notre lumière intérieure.
+            </p>
 
-          <p><b>Therapy can support you through:</b></p>
-          <ul>
-            <li>Physical aches and injuries</li>
-            <li>Grief, divorce, or separation</li>
-            <li>Life changes and relocations</li>
-            <li>Surgical interventions (before and after)</li>
-            <li>Emotional blockages or overwhelm</li>
-            <li>Important decisions and transitions</li>
-          </ul>
+            <p><b>Pour vous accompagner dans:</b></p>
+            <ul>
+              <li>Les douleurs physiques et les blessures</li>
+              <li>Le deuil, le divorce ou la séparation</li>
+              <li>Les changements de vie et les déménagements</li>
+              <li>Les interventions chirurgicales (avant et après)</li>
+              <li>Les blocages émotionnels ou le surmenage émotionnel</li>
+              <li>Les décisions importantes et les transitions</li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
@@ -60,20 +56,17 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
       <div class="grid pantalla-der">
         <div id="whatbring">
           <div class="izq">
-            <div>
-              <h2>What therapy can bring</h2>
+            <div class="conte">
+              <h2>Bienfaits :</h2>
               <ul>
-                <li>
-                  Eases physical pain and tension, bringing the body back into
-                  balance
-                </li>
-                <li>Clarity in the midst of overwhelm</li>
-                <li>Integration of shocks and transitions</li>
-                <li>Greater resilience and self-expression</li>
-                <li>Tools and anchors to manage strong feelings</li>
-                <li>Improved mood, reduced anxiety, and stress</li>
-                <li>Trust in your body and inner resources</li>
-                <li>More choice and freedom in how you respond to life</li>
+                <li>Soulagement des tensions et douleurs physiques, rééquilibrage du corps</li>
+                <li>Clarté et sérénité face au stress et à l’agitation</li>
+                <li>Intégration des chocs et transitions de vie</li>
+                <li>Renforcement de la résilience et de l’expression de soi/li>
+                <li>Outils concrets pour gérer les émotions fortes</li>
+                <li>Amélioration de l’humeur, réduction du stress et de l’anxiété</li>
+                <li>Confiance en votre corps et vos ressources intérieures</li>
+                <li>Plus de liberté dans vos réponses à la vie</li>
               </ul>
             </div>
           </div>
@@ -87,16 +80,15 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
       <div id="process">
         <div class="ventana">
           <div class="conte">
-            <h2>The Therapy Process</h2>
+            <h2>Approche</h2>
             <p>
-              My practice is grounded in my academic training, holding UK
-              Master's degrees in Osteopathy and Psychotherapy.
+              Ma pratique repose sur mes formations académiques, avec des diplômes de Master au Royaume-Uni en ostéopathie et en psychothérapie.
             </p>
-            <p>I work with:</p>
+            <p>Je travaille avec :</p>
             <ul>
-              <li>Children</li>
-              <li>Adults</li>
-              <li>Elderly individuals</li>
+              <li>Les enfants</li>
+              <li>Les adultes</li>
+              <li>Les personnes âgées</li>
             </ul>
           </div>
         </div>
@@ -105,19 +97,19 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
         </div>
         <div class="ventana">
           <div class="conte">
-            <p>The therapy may include:</p>
+            <p>La thérapie peut inclure :</p>
             <ul>
-              <li>Therapeutic Touch</li>
-              <li>Verbal and non-verbal dialogue</li>
-              <li>Movement, music, dance, or art</li>
-              <li>Stillness and silence</li>
-              <li>A spiritual dimension, if it feels right</li>
+              <li>Le toucher thérapeutique</li>
+              <li>Le dialogue verbal et non verbal</li>
+              <li>Le mouvement, la musique, la danse ou l’art</li>
+              <li>Le calme et le silence</li>
+              <li>Une dimension spirituelle, si cela survient</li>
             </ul>
-            <p>
+            <!-- <p>
               The process is never about “fixing” but about shifting what is
               present, creating space for expression, connection, and
               transformation.
-            </p>
+            </p> -->
           </div>
         </div>
       </div>
@@ -126,24 +118,18 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
       <div id="cost">
         <div class="izq">
           <div class="conte">
-            <h2>Duration, Costs& Frequencies</h2>
+            <h2>Tarifs</h2>
             <ul>
-              <li>First session : 180 CHF (1h30)</li>
-              <li>Follow-up Session : 120 CHF (1h)</li>
-              <li>Children up to 18yrs of age : 100 CHF</li>
-              <li>Individual sessions are held face-to-face OR Online</li>
-              <li>
-                It is recommended to have 5 sessions for the process to settle
-                into the body.
-              </li>
-              <li>Payment method : Cash/ Bank Transfer/ Twint</li>
-              <li>
-                I practice in the Valais, with sessions available in
-                Crans-Montana and Sion
-              </li>
+              <li>Première séance (1h30) : 180 CHF</li>
+              <li>Séance de suivi (1h) : 120 CHF</li>
+              <li>Enfants jusqu’à 18 ans : 100 CHF</li>
+              <li>Les séances individuelles se déroulent en présentiel OU en ligne.</li>
+              <li>Il est recommandé de suivre 5 séances pour que le processus puisse s’installer pleinement dans le corps.</li>
+              <li>Modes de paiement : espèces / virement bancaire / Twint.</li>
+              <li>Formats : En présentiel (Crans-Montana & Sion) ou en ligne</li>
             </ul>
             <p class="aviso">
-              <b>Languages:</b> French, English, Spanish and Dutch
+              <b>Langues:</b> Français, Anglais, Espagnol, Néerlandais
             </p>
           </div>
         </div>
@@ -167,16 +153,15 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
     </section>
 
     <Prefooter
-      encabezado="I help you connect with your emotions and release energy blockages"
-      btntxt="contact me"
-      href="/contact"
+      encabezado="Honorer votre être dans sa totalité, dans son chaos et sa beauté, avec douceur et authenticité"
+      btntxt="Contactez-moi"
+      href="/fr/contact"
     />
 
     <div class="disclaimer">
-      <b>DISCLAIMER:</b> I do not treat osteopathically, nor hold psychotherapy sessions.
-      I draw upon my qualifications, trainings and experience of life to understand
-      and treat my patients. This therapy does not replace any conventional medical
-      treatment and can be used in parallel with medical interventions.
+      <b>Clause de non-responsabilité:</b> Je ne pratique pas en tant qu’ostéopathe et je ne propose pas de séances de psychothérapie.
+Je m’appuie sur mes qualifications, mes formations et mon expérience de vie pour comprendre et accompagner les personnes. 
+Cette thérapie ne remplace pas un traitement médical conventionnel et peut être utilisée en complément de toute intervention médicale.
     </div>
   </main>
 </Layout>
@@ -195,8 +180,11 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
     .izq,
     .der {
       flex: 1;
+      justify-content: center;
+      align-items: center;
+      display: flex;
     }
-    .der > * {
+    .conte{
       max-width: 60%;
     }
     p:last-of-type {
@@ -226,10 +214,12 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
     .izq,
     .der {
       flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
-    .izq > * {
+    .izq .conte {
       max-width: 60%;
-      justify-self: center;
     }
   }
   @include cel {
@@ -256,9 +246,10 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
     #whatbring .izq {
       padding: $margen 0;
       max-width: 100%;
+      width: 100%;
     }
-    #whatbring .izq > * {
-      max-width: 70%;
+    #whatbring .conte{
+      max-width: 70%!important;
     }
     #seek .izq {
       display: none;
@@ -274,6 +265,26 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
     }
   }
 
+  @include tableta {
+    #seek {
+      background: url(/seek-support.webp) no-repeat center left $ligero;
+      background-size: 50%;
+      background-position: left bottom;
+    }
+    #whatbring .izq {
+      padding: $margen 0;
+    }
+    #whatbring .der {
+      height: 100%;
+      img {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: right;
+      }
+    }
+  }
+
   #process {
     display: flex;
     gap: $margen-cel;
@@ -282,7 +293,7 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
       margin-top: 0;
       font-size: clamp(1.2rem, 2rem, 1.2rem);
     }
-    p{
+    p {
       margin-top: 2rem;
     }
     .ventana {
@@ -348,13 +359,12 @@ import { isRenderTemplateResult } from "astro/runtime/server/render/astro/render
         margin: $margen 0 0;
       }
       #logos {
-        margin:0;
+        margin: 0;
         padding: 1rem;
         width: 70%;
-        ul{
+        ul {
           gap: 2rem;
           padding-left: 0;
-
         }
       }
     }

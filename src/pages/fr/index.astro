@@ -13,7 +13,7 @@ import Layout from "@layouts/Layout.astro";
     <div class="grid contenido">
       <Encabezados
         txtayuda="Sacred Space"
-        encabezado="Where the Body and the Emotions can express, move, and shift"
+        encabezado="Un espace où le corps et les émotions peuvent s’exprimer, bouger et se transformer."
       />
     </div>
 
@@ -25,24 +25,24 @@ import Layout from "@layouts/Layout.astro";
         <div class="centro">
           <div class="conte">
             <p>
-              <b>I welcome you</b> with all that you are, all that you have been,
-              and all that you are becoming.
+              <b>Je vous accueille</b> tel·le que vous êtes, avec votre passé, votre
+              présent et votre futur.
             </p>
             <p>
-              A journey we take together, holding peace within the messy, the
-              painful, and the ever-changing movement of life.
+              Un bout de chemin que nous faisons ensemble, dans un espace crée
+              pour le chaos, la douleur et tous les changements continus de la
+              vie.
             </p>
           </div>
         </div>
       </div>
 
       <div id="longing">
-        <h2>You may be longing for…</h2>
+        <h2>Vous aspirez à…</h2>
         <p>
-          A space where you are heard and understood, where your <b>body</b> can
-          soften, your <b>nervous system</b> can slow down, and your <b
-            >inner self</b
-          > can heal.
+          Un espace où vous êtes entendu·e, où le corps peut se détendre, où le
+          système nerveux peut s’apaiser, où les émotions peuvent se libérer, et
+          où ce qui pèse peut se relâcher.
         </p>
       </div>
     </section>
@@ -54,44 +54,43 @@ import Layout from "@layouts/Layout.astro";
         </div>
         <div class="centro">
           <div class="conte">
-            <h2>One-to-One Therapy</h2>
+            <h2>Thérapie individuelle</h2>
+            <p>Pour faire une pause, respirer et revenir à soi.</p>
             <p>
-              Sacred Space Therapy is a place to pause, breathe, and come back
-              to yourself.
+              Ici, le corps et les émotions sont invités à s'exprimer, à bouger
+              et à être entendus, tels qu'ils sont.
             </p>
             <p>
-              Here, the body and emotions are invited to speak, to move, and to
-              be witnessed, just as they are.
+              Ensemble, nous transformons ce qui semble lourd ou bloqué et
+              ouvrons un espace pour plus de légèreté et de clarté, ici et
+              maintenant.
             </p>
             <p>
-                Together we shape-shift what feels heavy or stuck, and open space
-                for more ease, clarity, and presence in the here & now.
+              ✨Je pratique dans le Valais. Les séances sont disponibles à
+              Crans-Montana et Sion..
             </p>
-            <p>
-                ✨I practice in the Valais, with sessions available in
-                Crans-Montana and Sion.
-            </p>
-            <Btn href="/therapy" text="About Therapy" className="oscuro"  />
+            <Btn href="/fr/therapy" text="Thérapie" className="oscuro" />
           </div>
         </div>
       </div>
       <div id="productos">
         <div class="centro">
           <div class="conte">
-            <h2>Women’s Temple or Circle</h2>
-            <p>A safe and sacred space held by women, for women.</p>
+            <h2>Temple ou Cercle de Femmes</h2>
+            <p>Un espace protégé et sacré tenu par des femmes, pour des femmes.</p>
             <p>
-              ..Here, we gather to move, dance, chant, touch, laugh, cry,
-              share, and listen. </br>
-              ..Through gentle, respectful, and conscious
-              practices, we reconnect with our feminine strength and step into
-              deep empowerment. </br>
-              ..Together, we heal, grow, and embody the
-              wisdom that lives within us.
+              .. Ici, nous nous rassemblons pour bouger, danser, chanter, toucher, rire, pleurer, partager et écouter.</br>
+              .. À travers des pratiques respectueuses, douces et conscientes, nous nous reconnectons à notre force féminine et cultivons un véritable empowerment.</br>
+              .. Ensemble, nous guérissons, grandissons et incarnons la sagesse qui vit en nous. <br />
+              .. Un temple de femmes n'est pas une thérapie ni un groupe de soutien, mais un espace protégé pour être ensemble.
             </p>
-            <p>✨ I hold circles in Crans-Montana, Valais</p>
-            <Btn href="/womens-circle" text="About Women's Circles" className="oscuro"  />
-          </div>
+        <p>✨ Je tiens des cercles à Crans-Montana, Valais.</p>
+        <Btn
+          href="/fr/womens-circle"
+          text="Cercle de Femmes"
+          className="oscuro"
+        />
+         </div>
         </div>
         <div class="laimg">
           <img src="/womens-circle-home.webp" alt="Wommens temple circle home" />
@@ -99,7 +98,6 @@ import Layout from "@layouts/Layout.astro";
       </div>
     </section>
   </main>
-
   <section id="fanny" class="grid pantalla-der">
     <div id="conteFanny">
         <div id="margen"></div>
@@ -107,11 +105,9 @@ import Layout from "@layouts/Layout.astro";
     <div class="conte">
         <h2>Fanny Vandewiele</h2>
         <p>
-        I am fascinated by the ways body, spirit, and emotions intertwine with
-        life’s transitions, and I explore relationships, movement, dance, music,
-        and feeling as gateways to presence and healing.
+        Je suis fascinée par les manières dont le corps, l’esprit et les émotions s’entrelacent avec les transitions de la vie. J’aime explorer les relations, le mouvement, la danse, la musique et les émotions comme des passerelles vers la présence et la guérison.
       </p>
-      <Btn href="/about" text="About Fanny" className="claro" />
+      <Btn href="/fr/about" text="Qui suis-je?" className="claro" />
     </div>
   </div>
 </div>
@@ -192,6 +188,18 @@ import Layout from "@layouts/Layout.astro";
         height: auto!important;
       }
     }
+
+    @include tableta {
+      .centro {
+        padding: $margen 0;
+      }
+    }
+    @include tableta-land {
+      .centro {
+        padding: $margen 0;
+      }
+    }
+    
   }
 
   #conteFanny {

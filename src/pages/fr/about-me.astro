@@ -11,13 +11,12 @@ import Layout from "@layouts/Layout.astro";
   <main>
     <div class="grid contenido">
       <Encabezados
-        txtayuda="About Me"
-        encabezado="Accompanying People Through Life's Processes"
+        txtayuda="Qui suis-je?"
+        encabezado="Accompagner les personnes dans les processus de la vie"
         marginEspecial
       />
       <p class="centrarYlimitar">
-        I believe in acknowledging the whole person; the parts we embrace and
-        the parts we often wish to hide because all of it belongs.
+        Je crois en l’importance d’accueillir la personne dans sa globalité: les parts que nous acceptons et celles que nous préférerions cacher… car tout fait partie de nous.
       </p>
     </div>
 
@@ -25,22 +24,16 @@ import Layout from "@layouts/Layout.astro";
       <div id="whatis">
         <div class="izq">
           <div class="conte">
-            <h2>A Journey Shaped by Many Paths</h2>
+            <h2>Un parcours façonné par de nombreux chemins</h2>
             <p>
-              My journey has taken me across the globe and through many roles:
-              Dance Movement Psychotherapist, Osteopath, Women’s Temple
-              Facilitator, Palliative Carer, Yogini, and Mother of a child with
-              special needs.
+              Mon parcours m’a menée à travers le monde et à travers de nombreux rôles: psychothérapeute par la danse et le mouvement, ostéopathe, facilitatrice de Temple de Femmes, accompagnante en soins palliatifs, yogini, et maman d’un enfant à besoins spécifiques.
             </p>
-            <p>
-              Each of these experiences has shaped the way I meet others.. with
-              presence, compassion, and reverence for the resilience and beauty
-              of being human.
+            <p>Chacune de ces expériences a façonné ma manière de rencontrer l’autre: avec présence, compassion et un profond respect pour la résilience et la beauté de l’être humain.
             </p>
           </div>
         </div>
         <div class="der">
-          <img src="/about-me-journey.webp" alt="about me" />
+          <img src="/about-me-journey.webp" alt="Qui suis-je?" />
         </div>
       </div>
     </section>
@@ -50,17 +43,13 @@ import Layout from "@layouts/Layout.astro";
         <img src="/about-me-moving.webp" alt="women's circle, sacred space" />
         <div class="der">
           <div class="conte">
-            <h2>A Journey Through Movement and Meaning</h2>
+            <h2>Un voyage à travers le mouvement et le sens</h2>
             <p>
-              I love exploring movement, dance, music, feelings, and the
-              challenges that arise within myself and others, as pathways into a
-              more embodied experience of the present moment.
+              J’aime explorer le mouvement, la danse, la musique, les émotions et les défis qui surgissent en moi et chez les autres, comme autant de chemins vers une expérience plus incarnée du moment présent.
             </p>
 
             <p>
-              The body, spirit, and emotions have always fascinated me. How they
-              weave together with music, healing, life, and even death to reveal
-              our deepest truths.
+              Le corps, l’esprit et les émotions m’ont toujours fascinée: la manière dont ils s’entrelacent avec la musique, la guérison, la vie et la mort, pour révéler nos vérités les plus profondes.
             </p>
           </div>
         </div>
@@ -69,10 +58,10 @@ import Layout from "@layouts/Layout.astro";
 
     <div class="grid contenido">
       <Prefooter
-        encabezado="I help you connect with your emotions and release energy blockages"
-        btntxt="contact me"
-        parrafo="<p>My therapeutic approach is greatly rooted in a person-centred and humanistic perspective, and is informed by the pioneering work of Marion Chace and Alma Hawkins. It has been further enriched by Gerald Lamb's osteopathic teaching, which shapes my understanding of the body's wisdom and capacity to heal.</p><p>Ultimately, I see therapy as a shared journey. One where we explore the here and now, and discover new ways of moving forward.</p>"
-        href="/contact"
+        encabezado="Ensemble, nous créons un espace de clarté, de présence et de paix."
+        btntxt="Contactez-moi"
+        parrafo="<p>Mon approche thérapeutique s'enracine dans une vision humaniste et centrée sur la personne, inspirée par le travail pionnier de Marion Chace et Alma Hawkins. Elle est également nourrie par l'enseignement ostéopathique de Gerald Lamb, qui renforce ma compréhension de la sagesse du corps et de sa capacité innée à se guérir.</p><p>Au fond, je vois la thérapie comme un voyage partagé, une exploration de l'« ici et maintenant » pour découvrir de nouvelles façons d'avancer.</p>"
+        href="/fr/contact"
       />
     </div>
   </main>
@@ -106,6 +95,17 @@ import Layout from "@layouts/Layout.astro";
         }
       }
     }
+
+    @include tableta{
+      img{
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+      .der{
+        padding: $margen 0;
+      }
+    }
   }
   #whatis {
     display: grid;
@@ -121,6 +121,7 @@ import Layout from "@layouts/Layout.astro";
     }
     @include cel {
       grid-template-columns: 1fr;
+      margin-top: $margen;
       .izq {
         order: -1;
         padding: $margen 0;
@@ -129,11 +130,21 @@ import Layout from "@layouts/Layout.astro";
         }
       }
     }
-    @include cel {
-      margin-top: $margen;
+
+    @include tableta{
+      .der{
+        width: 100%;
+        height: 100%;
+        img{
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
       .izq{
-        order: 1;
+        padding: $margen 0;
       }
     }
+
   }
 </style>
