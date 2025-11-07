@@ -148,11 +148,11 @@ import Layout from "@layouts/Layout.astro";
         <div class="conte">
           <h2>Fee:</h2>
           <p>
-            For an open Temple : 80 Chf per woman (by Twint, Cash, or Bank
+           <b> For an open Temple :</b> 80 Chf per woman (by Twint, Cash, or Bank
             Transfer) beforehand.
           </p>
           <p>
-            For a closed Temple <span>(includes 4 circles)</span> : 300 Chf per women
+            <b>For a closed Temple <span>(includes 4 circles)</span> :</b> 300 Chf per women
             (by Twint, Cash, or Bank Transfer) beforehand.
           </p>
         </div>
@@ -347,6 +347,13 @@ import Layout from "@layouts/Layout.astro";
     gap: 1rem;
     justify-content: space-between;
     padding: $margen;
+    b{
+      color: white;
+      span{
+        font-size: .8em;
+        font-weight: 400;
+      }
+    }
     .conte {
       flex: 1 0 fit-content;
       max-width: 23%;

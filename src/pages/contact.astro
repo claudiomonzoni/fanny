@@ -112,7 +112,7 @@ import Layout from "@layouts/Layout.astro";
           }
 
           // Número de WhatsApp (sin + ni espacios)
-          const whatsappNumber = "+41797401235"; // cámbialo si deseas otro
+          const whatsappNumber = "+41797401235"; 
 
           // Mensaje formateado
           const text = `Hello! 👋%0A
@@ -121,7 +121,7 @@ Email: ${email}%0A
 Phone: ${phone || "Not provided"}%0A
 Service: ${service}%0A
 Message:%0A${encodeURIComponent(message)}%0A%0A
-— Sent from the contact form on your website.`;
+— Sent from fanny-vandewiele.com.`;
 
           const whatsappURL = `https://wa.me/${whatsappNumber}?text=${text}`;
 

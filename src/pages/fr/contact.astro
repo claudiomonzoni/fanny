@@ -104,23 +104,23 @@ Cette thérapie ne remplace pas un traitement médical conventionnel et peut êt
 
           if (!fullname || !email || !service) {
             if (formMsg) {
-              formMsg.textContent = "Please complete all required fields.";
+              formMsg.textContent = "Veuillez remplir tous les champs obligatoires.";
             }
             if (formMsg) formMsg.style.color = "#ffaaaa";
             return;
           }
 
           // Número de WhatsApp (sin + ni espacios)
-          const whatsappNumber = "+41797401235"; // cámbialo si deseas otro
+          const whatsappNumber = "+41797401235"; 
 
           // Mensaje formateado
-          const text = `Hello! 👋%0A
-I'm *${fullname}*.%0A
+          const text = `Bonjour! %0A
+Je suis *${fullname}*.%0A
 Email: ${email}%0A
-Phone: ${phone || "Not provided"}%0A
+Téléphone: ${phone || "Non fourni"}%0A
 Service: ${service}%0A
 Message:%0A${encodeURIComponent(message)}%0A%0A
-— Sent from the contact form on your website.`;
+— Envoyé depuis fanny-vandewiele.com`;
 
           const whatsappURL = `https://wa.me/${whatsappNumber}?text=${text}`;
 
